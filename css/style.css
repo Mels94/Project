@@ -1,0 +1,27 @@
+.icon{
+     margin-top: 11px;
+     margin-left: 6px;
+ }
+.selectstyle{
+    margin-top: 10px;
+}
+.btn1{
+    margin-top: 20px;
+}
+.inpstyle{
+    width: 255px;
+    height: 20px;
+    margin-top: 10px;
+}
+.nav-item .row {
+    flex-wrap: nowrap !important;
+}
+
+
+
+.bs-example{
+    margin: 20px;
+}
+.accordion .fa{
+    margin-right: 0.5rem;
+}
