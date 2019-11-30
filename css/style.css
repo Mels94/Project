@@ -16,6 +16,9 @@
 .nav-item .row {
     flex-wrap: nowrap !important;
 }
+#demoout{
+    margin-left: 30px;
+}
 
 
 .bs-example{
