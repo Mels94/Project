@@ -34,98 +34,74 @@
                 <input type="text" class="inpstyle" placeholder="Filter databases by name or regex">
             </div>
 
-            <!--<div class="bs-example">
-                <div class="accordion" id="accordionExample">
-
-                    <div>
-                        <div class="minus_plus" id="headingOne1">
-                            <h2 class="mb-0">
-                                <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
-                                    <i class="fa fa-plus"></i>
-                                    <i class="fa fa-database icon" aria-hidden="true"></i>What is HTML?
-                                </a>
-                            </h2>
-                        </div>
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne1" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <ul class="list">
-                                    <li class="list-group"><a href="#">Cras justo odio</a></li>
-                                    <li class="list-group"><a href="#">Cras justo odio</a></li>
-                                    <li class="list-group"><a href="#">Cras justo odio</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>-->
 
 
             <div class="container">
 
-                <div class="collapse-group">
+                <div class="collapse-group collapse-parent">
                     <div class="minus_plus">
 
-                        <p><a class="btn" data-toggle="collapse" data-target="#demoout">
+                        <p>
+                            <a class="btn" data-toggle="collapse" data-target="#demoout">
                             <i class="fa fa-plus"></i>
                             <i class="fa fa-database icon" aria-hidden="true"></i>Registracia
                         </a></p>
                     </div>
-                    <div class="collapse in" id="demoout">
-                        <div class="collapse-group">
-                            <div class="minus_plus">
-                                <p><a class="btn" data-toggle="collapse" data-target="#demoin">
-                                    <i class="fa fa-plus"></i>
-                                    <i class="fa fa-database icon" aria-hidden="true"></i>User
-                                </a></p>
-                            </div>
-
-                            <div class="collapse in" id="demoin">
-                                <div class="collapse-group">
-                                    <ul class="list">
-                                        <li class="list-group"><a href="#">Karen</a></li>
-                                        <li class="list-group"><a href="#">Lilit</a></li>
-                                        <li class="list-group"><a href="#">Arman</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="minus_plus">
-                                <p><a class="btn" data-toggle="collapse" data-target="#demoin1">
-                                    <i class="fa fa-plus"></i>
-                                    <i class="fa fa-database icon" aria-hidden="true"></i>User_ID
-                                </a></p>
-                            </div>
-                            <div class="collapse in" id="demoin1">
-                                <div class="collapse-group">
-                                    <ul class="list">
-                                        <li class="list-group"><a href="#">2</a></li>
-                                        <li class="list-group"><a href="#">5</a></li>
-                                        <li class="list-group"><a href="#">13</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="minus_plus">
-                                <p><a class="btn" data-toggle="collapse" data-target="#demoin2">
-                                    <i class="fa fa-plus"></i>
-                                    <i class="fa fa-database icon" aria-hidden="true"></i>Friend_ID
-                                </a></p>
-                            </div>
-                            <div class="collapse in" id="demoin2">
-                                <div class="collapse-group">
-                                    <ul class="list">
-                                        <li class="list-group"><a href="#">12</a></li>
-                                        <li class="list-group"><a href="#">8</a></li>
-                                        <li class="list-group"><a href="#">14</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
 
                 </div>
+                <div class="collapse in" id="demoout">
+                    <div class="collapse-group">
+                        <div class="minus_plus">
+                            <p><a class="btn" data-toggle="collapse" data-target="#demoin">
+                                <i class="fa fa-plus"></i>
+                                <i class="fa fa-database icon" aria-hidden="true"></i>User
+                            </a></p>
+                        </div>
+
+                        <div class="collapse in" id="demoin">
+                            <div class="collapse-group">
+                                <ul class="list">
+                                    <li class="list-group"><a href="#">Karen</a></li>
+                                    <li class="list-group"><a href="#">Lilit</a></li>
+                                    <li class="list-group"><a href="#">Arman</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="minus_plus">
+                            <p><a class="btn" data-toggle="collapse" data-target="#demoin1">
+                                <i class="fa fa-plus"></i>
+                                <i class="fa fa-database icon" aria-hidden="true"></i>User_ID
+                            </a></p>
+                        </div>
+                        <div class="collapse in" id="demoin1">
+                            <div class="collapse-group">
+                                <ul class="list">
+                                    <li class="list-group"><a href="#">2</a></li>
+                                    <li class="list-group"><a href="#">5</a></li>
+                                    <li class="list-group"><a href="#">13</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="minus_plus">
+                            <p><a class="btn" data-toggle="collapse" data-target="#demoin2">
+                                <i class="fa fa-plus"></i>
+                                <i class="fa fa-database icon" aria-hidden="true"></i>Friend_ID
+                            </a></p>
+                        </div>
+                        <div class="collapse in" id="demoin2">
+                            <div class="collapse-group">
+                                <ul class="list">
+                                    <li class="list-group"><a href="#">12</a></li>
+                                    <li class="list-group"><a href="#">8</a></li>
+                                    <li class="list-group"><a href="#">14</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
 
             </div>
         </div>
@@ -249,6 +225,91 @@
                     </ul>
                 </div>
             </nav>
+
+            <div class="row px-2">
+                <div class="col-7 mt-3">
+                    <div class="card">
+                        <h5 class="card-header bg-info text-white">General settings</h5>
+                        <div class="card-body bg-light">
+                            <a href="#">Change password</a>
+                            <p>Server connection collation :
+                                <select class="form-control-sm utf">
+                                    <option>utf8mb4_general_ci</option>
+                                    <option>utf8mb4_unicode_ci</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <h5 class="card-header bg-info text-white">General settings</h5>
+                        <div class="card-body bg-light">
+                            <p>Language :
+                                <select class="form-control-sm utf">
+                                    <option>English</option>
+                                    <option>Russia</option>
+                                </select>
+                            </p>
+                            <p>Theme:
+                                <select class="form-control-sm theme">
+                                    <option>pmahomme</option>
+                                </select>
+                            </p>
+                            <p>&#8226; Font size :
+                                <select class="form-control-sm fontsize">
+                                    <option>82%</option>
+                                    <option>81%</option>
+                                    <option>80%</option>
+                                </select>
+                            </p>
+                            <a href="#">More settings</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-5 mt-3">
+                    <div class="card">
+                        <h5 class="card-header bg-info text-white">Database server</h5>
+                        <div class="card-body bg-light">
+                            <ul>
+                                <li>Server: Localhost via UNIX socket</li>
+                                <li>Server type: MySQL</li>
+                                <li>Server version: 5.7.11-Oubuntu6 - (Ubuntu)</li>
+                                <li>Protocol version: 10</li>
+                                <li>User: root@localhost</li>
+                                <li>Server charset: UTF-8 Unicode (utf8)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <h5 class="card-header bg-info text-white">Web server</h5>
+                        <div class="card-body bg-light">
+                            <ul>
+                                <li>Apache/2.4.18 (Ubuntu)</li>
+                                <li>Database client version: libmysql - mysqlnd 5.0.12-dev-20150407 - $id: f59eb767fea66$</li>
+                                <li>Server version: 5.7.11-Oubuntu6 - (Ubuntu)</li>
+                                <li>PHP extension: mysqli</li>
+                                <li>PHP version: 7.0.4-7ubuntu2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <h5 class="card-header bg-info text-white">phpMyAdmin</h5>
+                        <div class="card-body bg-light">
+                            <ul>
+                                <li>Version information: 4.5.4.1deb2ubuntu1</li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Wiki</a></li>
+                                <li><a href="#">Official Homepage</a></li>
+                                <li><a href="#">Contribute</a></li>
+                                <li><a href="#">Get support</a></li>
+                                <li><a href="#">List of changes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
