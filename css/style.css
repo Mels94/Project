@@ -58,15 +58,37 @@ body{
     background-color: #efefef;
 }
 #navbarNav ul li a{
-    padding: 0.6em;
-    display: block;
-    text-decoration: none;
-    color: #235a81;
-    cursor: pointer;
+     padding: 0.6em;
+     display: block;
+     text-decoration: none;
+     color: #235a81;
+     cursor: pointer;
+ }
+#navbarNav ul li a img{
+    margin-right: 0.5em;
+    vertical-align: -3px;
 }
 #content{
     margin: 0 0.5em;
 }
+#content li{
+    margin-bottom: 0.3em;
+}
+#main_pane_left li{
+    list-style-type: none !important;
+    margin-left: -25px !important;
+    margin-top: 1em;
+}
 .bg-grey-light{
-    background-color: #888 !important;
+    background-color: #b9b9b9 !important;
+}
+#pma_navigation_header{
+    text-align: center;
+}
+#pma_navigation_header label{
+    display: inline-block;
+    margin-bottom: 1em;
+}
+.btn1{
+    margin-top: 20px;
 }

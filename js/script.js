@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var count = 0
+    var count = 0;
     // Toggle plus minus icon on show hide of collapse element
     $(".collapse").on('show.bs.collapse', function () {
         $(this).prev(".minus_plus").find(".fa").removeClass("fa-plus").addClass("fa-minus");
@@ -13,28 +13,27 @@ $(document).ready(function () {
         } else {
             $(this).find(".fa").removeClass("fa-minus").addClass("fa-plus");
             $(".collapse").on('hide.bs.collapse', function () {
-                console.log("aaaaaaa")
                 $(this).find(".fa").removeClass("fa-minus").addClass("fa-plus");
                 $(this).find(".collapse").removeClass("show")
             });
         }
-        count++
+        count++;
     });
 
 
 var nav = [
-    {name:"Databases", img:"img/dat.png", title: "Databases"},
-    {name:"SQL", img:"img/sql.png", title: "SQL"},
-    {name:"Status", img:"img/stat.png", title: "Status"},
-    {name:"User accounts", img:"img/user.png", title: "User accounts"},
-    {name:"Export", img:"img/exp.png", title: "Export"},
-    {name:"Import", img:"img/imp.png", title: "Import"},
-    {name:"Settings", img:"img/set.png", title: "Settings"},
-    {name:"Replication", img:"img/rep.png", title: "Replication"},
-    {name:"Variables", img:"img/var.png", title: "Variables"},
-    {name:"Charsets", img:"img/chars.png", title: "Charsets"},
-    {name:"Engines", img:"img/eng.png", title: "Engines"},
-    {name:"Plugins", img:"img/plug.png", title: "Plugins"}
+    {name:"Databases", img:"images/s_db.png", title: "Databases"},
+    {name:"SQL", img:"images/b_sql.png", title: "SQL"},
+    {name:"Status", img:"images/s_status.png", title: "Status"},
+    {name:"User accounts", img:"images/s_rights.png", title: "User accounts"},
+    {name:"Export", img:"images/b_export.png", title: "Export"},
+    {name:"Import", img:"images/b_import.png", title: "Import"},
+    {name:"Settings", img:"images/b_tblops.png", title: "Settings"},
+    {name:"Replication", img:"images/s_replication.png", title: "Replication"},
+    {name:"Variables", img:"images/s_vars.png", title: "Variables"},
+    {name:"Charsets", img:"images/s_asci.png", title: "Charsets"},
+    {name:"Engines", img:"images/b_engine.png", title: "Engines"},
+    {name:"Plugins", img:"images/b_plugin.png", title: "Plugins"}
 ];
 nav.forEach((i)=>{
     let ul = document.getElementById("navigation");
@@ -47,7 +46,6 @@ nav.forEach((i)=>{
     let img = document.createElement("img");
     img.setAttribute('src', i.img);
     img.setAttribute('title', i.title);
-
     a.appendChild(img);
     a.innerHTML += i.name;
 });
