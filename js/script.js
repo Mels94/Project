@@ -22,6 +22,39 @@ $(document).ready(function () {
     });
 
 
+var nav = [
+    {name:"Databases", img:"img/dat.png", title: "Databases"},
+    {name:"SQL", img:"img/sql.png", title: "SQL"},
+    {name:"Status", img:"img/stat.png", title: "Status"},
+    {name:"User accounts", img:"img/user.png", title: "User accounts"},
+    {name:"Export", img:"img/exp.png", title: "Export"},
+    {name:"Import", img:"img/imp.png", title: "Import"},
+    {name:"Settings", img:"img/set.png", title: "Settings"},
+    {name:"Replication", img:"img/rep.png", title: "Replication"},
+    {name:"Variables", img:"img/var.png", title: "Variables"},
+    {name:"Charsets", img:"img/chars.png", title: "Charsets"},
+    {name:"Engines", img:"img/eng.png", title: "Engines"},
+    {name:"Plugins", img:"img/plug.png", title: "Plugins"}
+];
+nav.forEach((i)=>{
+    let ul = document.getElementById("navigation");
+    let li = document.createElement("li");
+    li.setAttribute('class', 'border-right');
+    ul.appendChild(li);
+    let a = document.createElement("a");
+    a.setAttribute('href', '#');
+    li.appendChild(a);
+    let img = document.createElement("img");
+    img.setAttribute('src', i.img);
+    img.setAttribute('title', i.title);
+
+    a.appendChild(img);
+    a.innerHTML += i.name;
+});
+
+
+
+
     $("#table").on('click', function () {
         $(".remove").remove();
 
@@ -94,7 +127,6 @@ $(document).ready(function () {
             "<option value='empty'>Empty</option>" +
             "</select>" +
             "</div>");
-
     });
 
 
