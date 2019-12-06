@@ -25,19 +25,23 @@
                 </div>
                 <div>
                     <a href="#" class="ml-1"><img src="images/b_home.png" alt="Home" title="Home"></a>
-                    <a href="#" class="ml-1"><img src="images/s_loggoff.png" alt="Empty session data" title="Empty session data"></a>
-                    <a href="#" class="ml-1"><img src="images/b_docs.png" alt="phpMyAdmin documentation" title="phpMyAdmin documentation"></a>
+                    <a href="#" class="ml-1"><img src="images/s_loggoff.png" alt="Empty session data"
+                                                  title="Empty session data"></a>
+                    <a href="#" class="ml-1"><img src="images/b_docs.png" alt="phpMyAdmin documentation"
+                                                  title="phpMyAdmin documentation"></a>
                     <a href="#" class="ml-1"><img src="images/b_sqlhelp.png" alt="Documentation" title="Documentation"></a>
-                    <a href="#" class="ml-1"><img src="images/s_cog.png" alt="Navigation panel settings" title="Navigation panel settings"></a>
-                    <a href="#" class="ml-1"><img src="images/s_reload.png" alt="Reload navigation panel" title="Reload navigation panel"></a>
+                    <a href="#" class="ml-1"><img src="images/s_cog.png" alt="Navigation panel settings"
+                                                  title="Navigation panel settings"></a>
+                    <a href="#" class="ml-1"><img src="images/s_reload.png" alt="Reload navigation panel"
+                                                  title="Reload navigation panel"></a>
                 </div>
-                <div>
+                <div class="mt-3">
                     <form action="">
-                        <label for="select_server">Current server:</label>
+                        <label for="select_server" class="d-block">Current server:</label>
                         <select class='custom-select-sm' id="select_server">
                             <option>(Servers) ...</option>
-                            <option value="1" selected>phpMyAdmin demo - MariaDB  (root)</option>
-                            <option value='2' selected>phpMyAdmin demo - MySQL  (root)</option>
+                            <option value="1" selected>phpMyAdmin demo - MariaDB (root)</option>
+                            <option value='2' selected>phpMyAdmin demo - MySQL (root)</option>
                         </select>
                     </form>
                 </div>
@@ -49,75 +53,136 @@
 
             </div>
             <div class="mt-2">
-                <input class="form-control form-control-sm" type="text" placeholder='Type to filter these. Enter to search all'>
+                <input class="form-control form-control-sm" type="text"
+                       placeholder='Type to filter these. Enter to search all'>
             </div>
 
-            <div class='container'>
 
-                <div class='collapse-group collapse-parent'>
+            <div class='container py-3' id="collapse">
+                <div class='collapse-group'>
+
                     <div class='minus_plus'>
-                        <p><a class='btn' id='table' data-toggle='collapse' data-target='#demoout'>
-                            <i class='fa fa-plus'></i>
-                            <i class='fa fa-database icon' aria-hidden='true'></i>Registracia
-                        </a></p>
+                        <a class='btn px-0' data-toggle='collapse' data-target='#demoout'>
+                            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                            <img src="images/s_db.png" alt="db" title="Database operations">
+                            Registracia
+                        </a>
                     </div>
 
-                </div>
-                <div class='collapse in' id='demoout'>
-                    <div class='collapse-group'>
-                        <div class='minus_plus'>
-                            <p><a class='btn' data-toggle='collapse' data-target='#demoin'>
-                                <i class='fa fa-plus'></i>
-                                <i class='fa fa-database icon' aria-hidden='true'></i>User
-                            </a></p>
-                        </div>
 
-                        <div class='collapse in' id='demoin'>
-                            <div class='collapse-group'>
-                                <ul class='list'>
-                                    <li class='list-group'><a href='#'>Karen</a></li>
-                                    <li class='list-group'><a href='#'>Lilit</a></li>
-                                    <li class='list-group'><a href='#'>Arman</a></li>
-                                </ul>
+                    <div class='collapse in' id='demoout'>
+                        <div class='collapse-group'>
+                            <div class='minus_plus'>
+                                <a class='btn' data-toggle='collapse' data-target='#demoin1'>
+                                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                                    <img src="images/s_db.png" alt="db" title="Database operations">
+                                    User
+                                </a>
                             </div>
-                        </div>
-                        <div class='minus_plus'>
-                            <p><a class='btn' data-toggle='collapse' data-target='#demoin1'>
-                                <i class='fa fa-plus'></i>
-                                <i class='fa fa-database icon' aria-hidden='true'></i>User_ID
-                            </a></p>
-                        </div>
-                        <div class='collapse in' id='demoin1'>
-                            <div class='collapse-group'>
-                                <ul class='list'>
-                                    <li class='list-group'><a href='#'>2</a></li>
-                                    <li class='list-group'><a href='#'>5</a></li>
-                                    <li class='list-group'><a href='#'>13</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class='minus_plus'>
-                            <p><a class='btn' data-toggle='collapse' data-target='#demoin2'>
-                                <i class='fa fa-plus'></i>
-                                <i class='fa fa-database icon' aria-hidden='true'></i>Friend_ID
-                            </a></p>
-                        </div>
-                        <div class='collapse in' id='demoin2'>
-                            <div class='collapse-group'>
-                                <ul class='list'>
-                                    <li class='list-group'><a href='#'>12</a></li>
-                                    <li class='list-group'><a href='#'>8</a></li>
-                                    <li class='list-group'><a href='#'>14</a></li>
-                                </ul>
-                            </div>
-                        </div>
 
+                            <div class='collapse in' id='demoin1'>
+                                <div class='collapse-group'>
+                                    <ul class='list'>
+                                        <li class='list-group'><a href='#'>Karen</a></li>
+                                        <li class='list-group'><a href='#'>Lilit</a></li>
+                                        <li class='list-group'><a href='#'>Arman</a></li>
+                                    </ul>
+                                </div>
+                            </div>
 
+                        </div>
+                        </div>
+                    <div class='collapse in' id='demoout'>
+                        <div class='collapse-group'>
+                            <div class='minus_plus'>
+                                <a class='btn' data-toggle='collapse' data-target='#demoin2'>
+                                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                                    <img src="images/s_db.png" alt="db" title="Database operations">
+                                    User
+                                </a>
+                            </div>
+
+                            <div class='collapse in' id='demoin'>
+                                <div class='collapse-group'>
+                                    <ul class='list'>
+                                        <li class='list-group'><a href='#'>2</a></li>
+                                        <li class='list-group'><a href='#'>5</a></li>
+                                        <li class='list-group'><a href='#'>13</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                    <div class='collapse in' id='demoout'>
+                        <div class='collapse-group'>
+                            <div class='minus_plus'>
+                                <a class='btn' data-toggle='collapse' data-target='#demoin'>
+                                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                                    <img src="images/s_db.png" alt="db" title="Database operations">
+                                    User
+                                </a>
+                            </div>
+
+                            <div class='collapse in' id='demoin'>
+                                <div class='collapse-group'>
+                                    <ul class='list'>
+                                        <li class='list-group'><a href='#'>12</a></li>
+                                        <li class='list-group'><a href='#'>8</a></li>
+                                        <li class='list-group'><a href='#'>14</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+<!--                            <div class='minus_plus'>-->
+<!--                                <a class='btn' data-toggle='collapse' data-target='#demoin1'>-->
+<!--                                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">-->
+<!--                                    <img src="images/s_db.png" alt="db" title="Database operations">-->
+<!--                                    User_ID-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class='collapse in' id='demoin1'>-->
+<!--                                <div class='collapse-group'>-->
+<!--                                    <ul class='list'>-->
+<!--                                        <li class='list-group'><a href='#'>2</a></li>-->
+<!--                                        <li class='list-group'><a href='#'>5</a></li>-->
+<!--                                        <li class='list-group'><a href='#'>13</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class='minus_plus'>-->
+<!--                                <a class='btn' data-toggle='collapse' data-target='#demoin2'>-->
+<!--                                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"-->
+<!--                                         accesskey="1">-->
+<!--                                    <img src="images/s_db.png" alt="db" title="Database operations">-->
+<!--                                    Friend_ID-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class='collapse in' id='demoin2'>-->
+<!--                                <div class='collapse-group'>-->
+<!--                                    <ul class='list'>-->
+<!--                                        <li class='list-group'><a href='#'>12</a></li>-->
+<!--                                        <li class='list-group'><a href='#'>8</a></li>-->
+<!--                                        <li class='list-group'><a href='#'>14</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+
+
+
+
                 </div>
-
-
             </div>
+
+
         </div>
 
 
@@ -146,7 +211,8 @@
                                         <label for="select_collation_connection">
                                             <img src="images/s_asci.png" alt="s_asci">
                                             &nbsp;Server connection collation
-                                            <a href="https://dev.mysql.com/doc/refman/5.7/en/charset-connection.html" target="mysql_doc">
+                                            <a href="https://dev.mysql.com/doc/refman/5.7/en/charset-connection.html"
+                                               target="mysql_doc">
                                                 <img src="images/b_help.png" alt="b_help" title="Documentation">:&nbsp;
                                             </a>
                                         </label>
@@ -154,12 +220,19 @@
                                             <option>Collation</option>
                                             <option></option>
                                             <optgroup label="armscii8" title="ARMSCII-8 Armenian">
-                                                <option value="armscii8_bin" title="Armenian, binary">armscii8_bin</option>
-                                                <option value="armscii8_general_ci" title="Armenian, case-insensive">armscii8_general_ci</option>
+                                                <option value="armscii8_bin" title="Armenian, binary">armscii8_bin
+                                                </option>
+                                                <option value="armscii8_general_ci" title="Armenian, case-insensive">
+                                                    armscii8_general_ci
+                                                </option>
                                             </optgroup>
                                             <optgroup label="ascii" title="US ASCII">
-                                                <option value="ascii_bin" title="West European, binary">ascii_bin</option>
-                                                <option value="ascii_general_ci" title="West European, case-insensitive">ascii_general_ci.dfgvrrhrtgr</option>
+                                                <option value="ascii_bin" title="West European, binary">ascii_bin
+                                                </option>
+                                                <option value="ascii_general_ci"
+                                                        title="West European, case-insensitive">
+                                                    ascii_general_ci.dfgvrrhrtgr
+                                                </option>
                                             </optgroup>
                                         </select>
                                     </form>
@@ -176,7 +249,8 @@
                                         <label for="sel-lang">
                                             <img src="images/s_lang.png" alt="s_lang">
                                             &nbsp;Language
-                                            <a href="http://localhost/phpmyadmin/doc/html/faq.html#faq7-2" target="documentation">
+                                            <a href="http://localhost/phpmyadmin/doc/html/faq.html#faq7-2"
+                                               target="documentation">
                                                 <img src="images/b_help.png" alt="b_help" title="Documentation">&nbsp;
                                             </a>
                                         </label>
@@ -192,7 +266,8 @@
                                 <li>
                                     <form action="">
                                         <img src="images/s_theme.png" alt="theme">
-                                        <a href="http://localhost/phpmyadmin/themes.php" target="themes">Theme: &nbsp;</a>
+                                        <a href="http://localhost/phpmyadmin/themes.php" target="themes">Theme:
+                                            &nbsp;</a>
                                         <select class="py-1">
                                             <option value="original">Original</option>
                                             <option value="pmahomme" selected>pmahomme</option>
@@ -244,9 +319,10 @@
                             <ul class="mt-3">
                                 <li>Apache/2.4.29 (Win32) OpenSSL/1.0.2n PHP/7.1.12</li>
                                 <li>Database client version: libmysql - mysqlnd 5.0.12-dev - 20150407 - $Id:
-                                    b396954eeb2d1d9ed7902b8bae237b287f21ad9e $</li>
+                                    b396954eeb2d1d9ed7902b8bae237b287f21ad9e $
+                                </li>
                                 <li>
-                                    PHP extension:   mysqli
+                                    PHP extension: mysqli
                                     <a href="https://secure.php.net/manual/en/book.mysqli.php" target="documentation">
                                         <img src="images/b_help.png" alt="b_help" title="Documentation">
                                     </a>
@@ -280,7 +356,7 @@
                 </div>
             </div>
 
-<!--                        <div class='row px-2' id="table1"></div>-->
+            <!--                        <div class='row px-2' id="table1"></div>-->
 
 
         </div>
