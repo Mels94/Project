@@ -181,24 +181,40 @@ $(document).ready(function () {
         }
     });
 
-    var table1 = [
+    var table_us = [
         {Table:"User", Action:"Browse Structure Search Insert Empty Drop", Rows:"4", Type:"InnoDB"},
         {Table:"User_ID", Action:"Browse Structure Search Insert Empty Drop", Rows:"5", Type:"InnoDB"},
         {Table:"Friend_ID", Action:"Browse Structure Search Insert Empty Drop", Rows:"4512", Type:"InnoDB"}
     ];
 
 
-
     $("#table").on('click', function () {
         $(".remove").remove();
 
-        // table1.forEach((i,j) =>{
-        //     console.log(table1.i);
-        // })
 
-        // for (let i = 0; i < table1.length; i++) {
-        //     console.log(table1[1].Table);
-        // }
+
+        for (let i = 0; i < table_us.length; i++) {
+            console.log(table_us[i]);
+            let table1 = document.getElementById("table1");
+            let table = document.createElement("table");
+            table1.appendChild(table);
+            let tr = document.createElement("tr");
+            table.appendChild(tr);
+            let th = document.createElement("th");
+            th.innerText = "Vernagir";
+            tr.appendChild(th);
+            let td = document.createElement("td");
+            td.innerText = table_us[i].Table;
+            tr.appendChild(td);
+
+
+            Object.keys(table_us[i]).forEach(item => {
+                console.log(item);
+
+
+            })
+        }
+
 
 
 

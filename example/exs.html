@@ -4,30 +4,7 @@
     <meta charset="UTF-8">
     <title>sevagir</title>
     <script src='../js/jquery-3.4.1.min.js'></script>
-    <style>
-        table.gridtable {
-            font-family: verdana,arial,sans-serif;
-            font-size:11px;
-            color:#333333;
-            border-width: 1px;
-            border-color: #666666;
-            border-collapse: collapse;
-        }
-        table.gridtable th {
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #666666;
-            background-color: #dedede;
-        }
-        table.gridtable td {
-            border-width: 1px;
-            padding: 8px;
-            border-style: solid;
-            border-color: #666666;
-            background-color: #ffffff;
-        }
-    </style>
+
 </head>
 <body>
 
@@ -172,61 +149,40 @@
 
 <div id="here_table"></div>
 <script>
-    $('#here_table').append(  '<table>' );
-
-    for(let i=0;i<3;i++){
-        $('#here_table').append( '<tr><td>' + 'result' +  i + '</td></tr>' );
-    }
-
-    $('#here_table').append(  '</table>' );
-
-    document.write("<table border=1>");
-      for (let row=1; row<=4; row++) {
-             document.write("<tr>");
-           for (let col=1; col<=8; col++) {
-                       document.write("<td>"+ "Tab" +"</td>");
-                }
-              document.write("</tr>");
-         }
-    document.write("</table>")
-
-    var MOUNTAINS = [
-        {"name":"Mount Everest","height":8848,"country":"Nepal"},
-        {"name":"Mount Rushmore","height":18,"country":"USA"}
-    ];
 
 
-    function buildTable(data) {
-        var table = document.createElement("table");
-        table.className="gridtable";
-        var thead = document.createElement("thead");
-        var tbody = document.createElement("tbody");
-        var headRow = document.createElement("tr");
-        ["Name","Height","Country"].forEach(function(el) {
-            var th=document.createElement("th");
-            th.appendChild(document.createTextNode(el));
-            headRow.appendChild(th);
-        });
-        thead.appendChild(headRow);
-        table.appendChild(thead);
-        data.forEach(function(el) {
-            var tr = document.createElement("tr");
-            for (var o in el) {
-                var td = document.createElement("td");
-                td.appendChild(document.createTextNode(el[o]))
-                tr.appendChild(td);
-            }
-            tbody.appendChild(tr);
-        });
-        table.appendChild(tbody);
-        return table;
-    }
-    window.onload=function() {
-        document.getElementById("content").appendChild(buildTable(MOUNTAINS));
-    }
 
 
 </script>
+
+<table border="1px solid">
+    <tr>
+        <th>Anun</th>
+        <th>Azganun</th>
+        <th>tariq</th>
+        <th>qwerty</th>
+    </tr>
+    <tr>
+        <td>Aram</td>
+        <td>Sargsyan</td>
+        <td>25</td>
+        <td>asd</td>
+    </tr>
+    <tr>
+        <td>Aram</td>
+        <td>Sargsyan</td>
+        <td>25</td>
+        <td>asd</td>
+    </tr>
+    <tr>
+        <th>Anun</th>
+        <th>Azganun</th>
+        <th>tariq</th>
+        <th>qwerty</th>
+    </tr>
+</table>
+
+
 
 
 </body>
