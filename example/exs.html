@@ -3,70 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <title>sevagir</title>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <style>
+        table.gridtable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 
-<!--                        <li class='border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/dat.png" title="Databases" alt="search">&nbsp; Databases-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/sql.png" alt="search">&nbsp; SQL-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/stat.png" alt="search">&nbsp; Status-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/user.png" alt="search">&nbsp; User accounts-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/exp.png" alt="search">&nbsp; Export-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/imp.png" alt="search">&nbsp; Import-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/set.png" alt="search">&nbsp; Settings-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/rep.png" alt="search">&nbsp; Replication-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/var.png" alt="search">&nbsp; Variables-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/chars.png" alt="search">&nbsp; Charsets-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/eng.png" alt="search">&nbsp; Engines-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                        <li class='nav-item border-right'>-->
-<!--                            <a href="#">-->
-<!--                                <img src="img/plug.png" alt="search">&nbsp; Plugins-->
-<!--                            </a>-->
-<!--                        </li>-->
 
+<!--navbar-->
+<!--<li class='border-right'>
+    <a href="#">
+        <img src="img/dat.png" title="Databases" alt="search">&nbsp; Databases
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/sql.png" alt="search">&nbsp; SQL
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/stat.png" alt="search">&nbsp; Status
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/user.png" alt="search">&nbsp; User accounts
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/exp.png" alt="search">&nbsp; Export
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/imp.png" alt="search">&nbsp; Import
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/set.png" alt="search">&nbsp; Settings
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/rep.png" alt="search">&nbsp; Replication
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/var.png" alt="search">&nbsp; Variables
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/chars.png" alt="search">&nbsp; Charsets
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/eng.png" alt="search">&nbsp; Engines
+    </a>
+</li>
+<li class='nav-item border-right'>
+    <a href="#">
+        <img src="img/plug.png" alt="search">&nbsp; Plugins
+    </a>
+</li>   -->
+
+
+
+<!--collapse-->
+<!--<div class='collapse-group'>
+
+    <div class='minus_plus'>
+        <a class='btn px-0' data-toggle='collapse' data-target='#demoout'>
+            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
+                 accesskey="1">
+            <img src="images/s_db.png" alt="db" title="Database operations">
+            Registracia
+        </a>
+    </div>
+
+    <div class='collapse in' id='demoout'>
+        <div class='collapse-group'>
+            <div class='minus_plus'>
+                <a class='btn' data-toggle='collapse' data-target='#demoin'>
+                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                    <img src="images/s_db.png" alt="db" title="Database operations">
+                    User
+                </a>
+            </div>
+            <div class='collapse in' id='demoin'>
+                <div class='collapse-group'>
+                    <ul class='list'>
+                        <li class='list-group'><a href='#'>Karen</a></li>
+                        <li class='list-group'><a href='#'>Lilit</a></li>
+                        <li class='list-group'><a href='#'>Arman</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='collapse in' id='demoout'>
+        <div class='collapse-group'>
+            <div class='minus_plus'>
+                <a class='btn' data-toggle='collapse' data-target='#demoin1'>
+                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                    <img src="images/s_db.png" alt="db" title="Database operations">
+                    User_ID
+                </a>
+            </div>
+            <div class='collapse in' id='demoin1'>
+                <div class='collapse-group'>
+                    <ul class='list'>
+                        <li class='list-group'><a href='#'>2</a></li>
+                        <li class='list-group'><a href='#'>5</a></li>
+                        <li class='list-group'><a href='#'>13</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='collapse in' id='demoout'>
+        <div class='collapse-group'>
+            <div class='minus_plus'>
+                <a class='btn' data-toggle='collapse' data-target='#demoin2'>
+                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                    <img src="images/s_db.png" alt="db" title="Database operations">
+                    Friend_ID
+                </a>
+            </div>
+            <div class='collapse in' id='demoin2'>
+                <div class='collapse-group'>
+                    <ul class='list'>
+                        <li class='list-group'><a href='#'>12</a></li>
+                        <li class='list-group'><a href='#'>8</a></li>
+                        <li class='list-group'><a href='#'>14</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div id="here_table"></div>
+<script>
+    $('#here_table').append(  '<table>' );
+
+    for(let i=0;i<3;i++){
+        $('#here_table').append( '<tr><td>' + 'result' +  i + '</td></tr>' );
+    }
+
+    $('#here_table').append(  '</table>' );
+
+    document.write("<table border=1>");
+      for (let row=1; row<=4; row++) {
+             document.write("<tr>");
+           for (let col=1; col<=8; col++) {
+                       document.write("<td>"+ "Tab" +"</td>");
+                }
+              document.write("</tr>");
+         }
+    document.write("</table>")
+
+    var MOUNTAINS = [
+        {"name":"Mount Everest","height":8848,"country":"Nepal"},
+        {"name":"Mount Rushmore","height":18,"country":"USA"}
+    ];
+
+
+    function buildTable(data) {
+        var table = document.createElement("table");
+        table.className="gridtable";
+        var thead = document.createElement("thead");
+        var tbody = document.createElement("tbody");
+        var headRow = document.createElement("tr");
+        ["Name","Height","Country"].forEach(function(el) {
+            var th=document.createElement("th");
+            th.appendChild(document.createTextNode(el));
+            headRow.appendChild(th);
+        });
+        thead.appendChild(headRow);
+        table.appendChild(thead);
+        data.forEach(function(el) {
+            var tr = document.createElement("tr");
+            for (var o in el) {
+                var td = document.createElement("td");
+                td.appendChild(document.createTextNode(el[o]))
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+        return table;
+    }
+    window.onload=function() {
+        document.getElementById("content").appendChild(buildTable(MOUNTAINS));
+    }
+
+
+</script>
 
 
 </body>
