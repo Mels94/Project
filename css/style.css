@@ -64,3 +64,28 @@ body{
 .btn1{
     margin-top: 20px;
 }
+#tableFilter{
+    padding: 0.1em 1em;
+}
+fieldset{
+    margin-top: 2em !important;
+    border: #aaa 1px solid !important;
+    background-color: #eee;
+}
+legend{
+    display: block;
+    margin-bottom: 0.5rem !important;
+}
+fieldset legend{
+    font-weight: bold;
+    color: #444;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    width: initial;
+    font-size: 1rem;
+}
+fieldset .formelement{
+    float: left;
+    margin-right: 0.5em;
+}

@@ -100,6 +100,11 @@ $(document).ready(function () {
             ]
         },
     ];
+
+
+
+
+
     collapse.forEach((i) => {
         let col = document.getElementById("collapse");
         let div = document.createElement("div");
@@ -182,112 +187,161 @@ $(document).ready(function () {
     });
 
     var table_us = [
-        {Table:"User", Action:"Browse Structure Search Insert Empty Drop", Rows:"4", Type:"InnoDB"},
-        {Table:"User_ID", Action:"Browse Structure Search Insert Empty Drop", Rows:"5", Type:"InnoDB"},
-        {Table:"Friend_ID", Action:"Browse Structure Search Insert Empty Drop", Rows:"4512", Type:"InnoDB"}
+        {
+            Table:"User",
+            Action:["Browse", "Structure", "Search", "Insert", "Empty", "Drop"],
+            Rows:"4",
+            Type:"InnoDB",
+            Collation:"utf8mb4_0900_ai_ci",
+            Size:"32.0 KiB",
+            Overhead:"-"
+        },
+        {
+            Table:"User_ID",
+            Action:["Browse", "Structure", "Search", "Insert", "Empty", "Drop"],
+            Rows:"5",
+            Type:"InnoDB",
+            Collation:"utf8mb4_0900_ai_ci",
+            Size:"16.0 KiB",
+            Overhead:"-"
+        },
+        {
+            Table:"Friend_ID",
+            Action:["Browse", "Structure", "Search", "Insert", "Empty", "Drop"],
+            Rows:"4512",
+            Type:"InnoDB",
+            Collation:"utf8mb4_0900_ai_ci",
+            Size:"16.0 KiB",
+            Overhead:"-"
+        }
     ];
+
 
 
     $("#table").on('click', function () {
         $(".remove").remove();
-
-
+        let table1 = document.getElementById("table1");
+        let table = document.createElement("table");
+        table.setAttribute('class', 'table-sm mx-3 remove');
+        table1.appendChild(table);
+        let tr = document.createElement("tr");
+        //tr.style.backgroundColor = "red";
+        //$("table tr").css('background-color','blue');
+        Object.keys(table_us[0]).forEach(item => {
+            let th = document.createElement("th");
+            th.innerText = item;
+            tr.appendChild(th);
+        });
+        table.appendChild(tr);
+        $("#table1 table tr th:eq(1)").attr('colspan', 6);
 
         for (let i = 0; i < table_us.length; i++) {
-            console.log(table_us[i]);
-            let table1 = document.getElementById("table1");
-            let table = document.createElement("table");
-            table1.appendChild(table);
-            let tr = document.createElement("tr");
-            table.appendChild(tr);
-            let th = document.createElement("th");
-            th.innerText = "Vernagir";
-            tr.appendChild(th);
+            let tr2 = document.createElement("tr");
+            //console.log(table_us[i].Action);
             let td = document.createElement("td");
             td.innerText = table_us[i].Table;
-            tr.appendChild(td);
+            tr2.appendChild(td);
+            table.appendChild(tr2);
 
 
-            Object.keys(table_us[i]).forEach(item => {
-                console.log(item);
+            for (let j = 0; j < table_us[i].Action.length; j++) {
+                let td2 = document.createElement("td");
+                td2.innerText = table_us[i].Action[j];
+                tr2.appendChild(td2);
+                //console.log(table_us[i].Action[j]);
+            }
 
-
-            })
+            let td3 = document.createElement("td");
+            td3.innerText = table_us[i].Rows;
+            tr2.appendChild(td3);
+            let td4 = document.createElement("td");
+            td4.innerText = table_us[i].Type;
+            tr2.appendChild(td4);
+            let td5 = document.createElement("td");
+            td5.innerText = table_us[i].Collation;
+            tr2.appendChild(td5);
+            let td6 = document.createElement("td");
+            td6.innerText = table_us[i].Size;
+            tr2.appendChild(td6);
+            let td7 = document.createElement("td");
+            td7.innerText = table_us[i].Overhead;
+            tr2.appendChild(td7);
         }
 
 
 
 
 
-/*        $("#table1").append(
-            "<table class='table table-sm mt-3 mx-3 remove'>" +
-            "<thead>" +
-            "<tr class='bg-light'>" +
-            "<th></th>" +
-            "<th>Table</th>" +
-            "<th>Action</th>" +
-            "<th>Rows</th>" +
-            "<th>Type</th>" +
-            "<th>Collation</th>" +
-            "<th>Size</th>" +
-            "<th>Overhead</th>" +
-            "</tr>" +
-            "</thead>" +
-            "<tbody>" +
-            "<tr>" +
-            "<th><input type='checkbox' name='check' value='check1'></th>" +
-            "<td>User</td>" +
-            "<td>Browse Structure Search Insert Empty Drop</td>" +
-            "<td>4</td>" +
-            "<td>InnoDB</td>" +
-            "<td>utf8_general_ci</td>" +
-            "<td>32 KiB</td>" +
-            "<td>-</td>" +
-            "</tr>" +
-            "<tr>" +
-            "<th><input type='checkbox' name='check' value='check2'></th>" +
-            "<td>User_ID</td>" +
-            "<td>Browse Structure Search Insert Empty Drop</td>" +
-            "<td>5</td>" +
-            "<td>InnoDB</td>" +
-            "<td>utf8_general_ci</td>" +
-            "<td>16 KiB</td>" +
-            "<td>-</td>" +
-            "</tr>" +
-            "<tr>" +
-            "<th><input type='checkbox' name='check' value='check3'></th>" +
-            "<td>Friend_ID</td>" +
-            "<td>Browse Structure Search Insert Empty Drop</td>" +
-            "<td>12</td>" +
-            "<td>InnoDB</td>" +
-            "<td>utf8_general_ci</td>" +
-            "<td>48 KiB</td>" +
-            "<td>-</td>" +
-            "</tr>" +
-            "<tr class='bg-light'>" +
-            "<th></th>" +
-            "<th># tables</th>" +
-            "<th>Sum</th>" +
-            "<th>117</th>" +
-            "<th>InnoDB</th>" +
-            "<th>utf8_general_ci</th>" +
-            "<th>560 KiB</th>" +
-            "<th>0 B</th>" +
-            "</tr>" +
-            "</tbody>" +
-            "</table>" +
 
-            "<div class='mx-3 remove'>" +
-            "<i class=\"fa fa-long-arrow-alt-up\"></i>" +
-            "<input type = 'checkbox' class='ml-4' id = 'all' name = 'check_all'>" +
-            "<label for= 'all'>Check All</label>" +
-            "<select class='ml-5'>" +
-            "<option value='selected'>With selected:</option>" +
-            "<option value='export'>Export</option>" +
-            "<option value='print'>Print view</option>" +
-            "<option value='empty'>Empty</option>" +
-            "</select>" +
-            "</div>");*/
+/*                $("#table1").append(
+                    "<table class='table table-sm mx-3 remove'>" +
+                    "<thead>" +
+                    "<tr class='bg-light'>" +
+                    "<th></th>" +
+                    "<th>Table</th>" +
+                    "<th>Action</th>" +
+                    "<th>Rows</th>" +
+                    "<th>Type</th>" +
+                    "<th>Collation</th>" +
+                    "<th>Size</th>" +
+                    "<th>Overhead</th>" +
+                    "</tr>" +
+                    "</thead>" +
+                    "<tbody>" +
+                    "<tr>" +
+                    "<th><input type='checkbox' name='check' value='check1'></th>" +
+                    "<td>User</td>" +
+                    "<td>Browse Structure Search Insert Empty Drop</td>" +
+                    "<td>4</td>" +
+                    "<td>InnoDB</td>" +
+                    "<td>utf8_general_ci</td>" +
+                    "<td>32 KiB</td>" +
+                    "<td>-</td>" +
+                    "</tr>" +
+                    "<tr>" +
+                    "<th><input type='checkbox' name='check' value='check2'></th>" +
+                    "<td>User_ID</td>" +
+                    "<td>Browse Structure Search Insert Empty Drop</td>" +
+                    "<td>5</td>" +
+                    "<td>InnoDB</td>" +
+                    "<td>utf8_general_ci</td>" +
+                    "<td>16 KiB</td>" +
+                    "<td>-</td>" +
+                    "</tr>" +
+                    "<tr>" +
+                    "<th><input type='checkbox' name='check' value='check3'></th>" +
+                    "<td>Friend_ID</td>" +
+                    "<td>Browse Structure Search Insert Empty Drop</td>" +
+                    "<td>12</td>" +
+                    "<td>InnoDB</td>" +
+                    "<td>utf8_general_ci</td>" +
+                    "<td>48 KiB</td>" +
+                    "<td>-</td>" +
+                    "</tr>" +
+                    "<tr class='bg-light'>" +
+                    "<th></th>" +
+                    "<th># tables</th>" +
+                    "<th>Sum</th>" +
+                    "<th>117</th>" +
+                    "<th>InnoDB</th>" +
+                    "<th>utf8_general_ci</th>" +
+                    "<th>560 KiB</th>" +
+                    "<th>0 B</th>" +
+                    "</tr>" +
+                    "</tbody>" +
+                    "</table>" +
+
+                    "<div class='mx-3 remove'>" +
+                    "<i class=\"fa fa-long-arrow-alt-up\"></i>" +
+                    "<input type = 'checkbox' class='ml-4' id = 'all' name = 'check_all'>" +
+                    "<label for= 'all'>Check All</label>" +
+                    "<select class='ml-5'>" +
+                    "<option value='selected'>With selected:</option>" +
+                    "<option value='export'>Export</option>" +
+                    "<option value='print'>Print view</option>" +
+                    "<option value='empty'>Empty</option>" +
+                    "</select>" +
+                    "</div>");*/
     });
 
 
