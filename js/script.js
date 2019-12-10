@@ -225,15 +225,21 @@ $(document).ready(function () {
         table.setAttribute('class', 'table-sm mx-3 remove');
         table1.appendChild(table);
         let tr = document.createElement("tr");
-        //tr.style.backgroundColor = "red";
-        //$("table tr").css('background-color','blue');
+        table.appendChild(tr);
+
         Object.keys(table_us[0]).forEach(item => {
             let th = document.createElement("th");
-            th.innerText = item;
             tr.appendChild(th);
+            let a = document.createElement("a");
+            a.innerText = item;
+            th.appendChild(a);
+
         });
-        table.appendChild(tr);
+
         $("#table1 table tr th:eq(1)").attr('colspan', 6);
+        $("table tr").css('background-color','#e6e6e6');
+        $("#table1 table tr th a").attr({href: '#'});
+        $("#table1 table tr th a:eq(1)").removeAttr("href");
 
         for (let i = 0; i < table_us.length; i++) {
             let tr2 = document.createElement("tr");
