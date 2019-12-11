@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
 //navbar
-    var nav = [
+/*    var nav = [
         {name: "Databases", img: "images/s_db.png", title: "Databases"},
         {name: "SQL", img: "images/b_sql.png", title: "SQL"},
         {name: "Status", img: "images/s_status.png", title: "Status"},
@@ -47,8 +47,21 @@ $(document).ready(function () {
         {name: "Charsets", img: "images/s_asci.png", title: "Charsets"},
         {name: "Engines", img: "images/b_engine.png", title: "Engines"},
         {name: "Plugins", img: "images/b_plugin.png", title: "Plugins"}
-    ];
-    nav.forEach((i) => {
+    ];*/
+
+$("button").click(function () {
+    $.ajax({
+        uri: '../json/index.json',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            //var arr = JSON.parse(data);
+            console.log(data);
+        }
+    });
+});
+
+/*    nav.forEach((i) => {
         let ul = document.getElementById("navigation");
         let li = document.createElement("li");
         li.setAttribute('class', 'border-right');
@@ -61,7 +74,7 @@ $(document).ready(function () {
         img.setAttribute('title', i.title);
         a.appendChild(img);
         a.innerHTML += i.name;
-    });
+    });*/
 
 
 //collapse
@@ -189,7 +202,14 @@ $(document).ready(function () {
     var table_us = [
         {
             Table:"User",
-            Action:["Browse", "Structure", "Search", "Insert", "Empty", "Drop"],
+            Action:[
+                {img:"images/bd_browse.png", name:"Browse"},
+                {img:"images/b_props.png", name:"Structure"},
+                {img:"images/bd_select.png", name:"Search"},
+                {img:"images/b_insrow.png", name:"Insert"},
+                {img:"images/bd_empty.png", name:"Empty"},
+                {img:"images/b_drop.png", name:"Drop"}
+                ],
             Rows:"4",
             Type:"InnoDB",
             Collation:"utf8mb4_0900_ai_ci",
@@ -198,7 +218,14 @@ $(document).ready(function () {
         },
         {
             Table:"User_ID",
-            Action:["Browse", "Structure", "Search", "Insert", "Empty", "Drop"],
+            Action:[
+                {img:"images/bd_browse.png", name:"Browse"},
+                {img:"images/b_props.png", name:"Structure"},
+                {img:"images/bd_select.png", name:"Search"},
+                {img:"images/b_insrow.png", name:"Insert"},
+                {img:"images/bd_empty.png", name:"Empty"},
+                {img:"images/b_drop.png", name:"Drop"}
+            ],
             Rows:"5",
             Type:"InnoDB",
             Collation:"utf8mb4_0900_ai_ci",
@@ -207,15 +234,21 @@ $(document).ready(function () {
         },
         {
             Table:"Friend_ID",
-            Action:["Browse", "Structure", "Search", "Insert", "Empty", "Drop"],
+            Action:[
+                {img:"images/bd_browse.png", name:"Browse"},
+                {img:"images/b_props.png", name:"Structure"},
+                {img:"images/bd_select.png", name:"Search"},
+                {img:"images/b_insrow.png", name:"Insert"},
+                {img:"images/bd_empty.png", name:"Empty"},
+                {img:"images/b_drop.png", name:"Drop"}
+            ],
             Rows:"4512",
             Type:"InnoDB",
             Collation:"utf8mb4_0900_ai_ci",
             Size:"16.0 KiB",
             Overhead:"-"
-        }
+        },
     ];
-
 
 
     $("#table").on('click', function () {
@@ -245,16 +278,25 @@ $(document).ready(function () {
             let tr2 = document.createElement("tr");
             //console.log(table_us[i].Action);
             let td = document.createElement("td");
-            td.innerText = table_us[i].Table;
             tr2.appendChild(td);
+            let a1 = document.createElement("a");
+            a1.setAttribute('href', '#');
+            a1.innerText = table_us[i].Table;
+            td.appendChild(a1);
             table.appendChild(tr2);
 
 
             for (let j = 0; j < table_us[i].Action.length; j++) {
                 let td2 = document.createElement("td");
-                td2.innerText = table_us[i].Action[j];
                 tr2.appendChild(td2);
-                //console.log(table_us[i].Action[j]);
+                let a2 = document.createElement("a");
+                a2.setAttribute('href', '#');
+                td2.appendChild(a2);
+                let img = document.createElement("img");
+                img.setAttribute('src', table_us[i].Action[j].img);
+                a2.appendChild(img);
+                a2.innerHTML += table_us[i].Action[j].name;
+
             }
 
             let td3 = document.createElement("td");
@@ -267,7 +309,10 @@ $(document).ready(function () {
             td5.innerText = table_us[i].Collation;
             tr2.appendChild(td5);
             let td6 = document.createElement("td");
-            td6.innerText = table_us[i].Size;
+            let a3 = document.createElement("a");
+            a3.setAttribute('href', '#');
+            td6.appendChild(a3);
+            a3.innerText = table_us[i].Size;
             tr2.appendChild(td6);
             let td7 = document.createElement("td");
             td7.innerText = table_us[i].Overhead;
