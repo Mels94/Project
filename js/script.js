@@ -33,48 +33,35 @@ $(document).ready(function () {
         console.log($(this).attr('accesskey'));
     });
 
-//navbar
-/*    var nav = [
-        {name: "Databases", img: "images/s_db.png", title: "Databases"},
-        {name: "SQL", img: "images/b_sql.png", title: "SQL"},
-        {name: "Status", img: "images/s_status.png", title: "Status"},
-        {name: "User accounts", img: "images/s_rights.png", title: "User accounts"},
-        {name: "Export", img: "images/b_export.png", title: "Export"},
-        {name: "Import", img: "images/b_import.png", title: "Import"},
-        {name: "Settings", img: "images/b_tblops.png", title: "Settings"},
-        {name: "Replication", img: "images/s_replication.png", title: "Replication"},
-        {name: "Variables", img: "images/s_vars.png", title: "Variables"},
-        {name: "Charsets", img: "images/s_asci.png", title: "Charsets"},
-        {name: "Engines", img: "images/b_engine.png", title: "Engines"},
-        {name: "Plugins", img: "images/b_plugin.png", title: "Plugins"}
-    ];*/
 
-$("button").click(function () {
+
     $.ajax({
-        uri: '../json/index.json',
-        type: 'GET',
-        dataType: 'json',
+        url: "json/navbar.json",
+        type: "GET",
+        dataType: "json",
         success: function (data) {
-            //var arr = JSON.parse(data);
-            console.log(data);
-        }
+            nav.forEach((i) => {
+                let ul = document.getElementById("navigation");
+                let li = document.createElement("li");
+                li.setAttribute('class', 'border-right');
+                ul.appendChild(li);
+                let a = document.createElement("a");
+                a.setAttribute('href', '#');
+                li.appendChild(a);
+                let img = document.createElement("img");
+                img.setAttribute('src', i.img);
+                img.setAttribute('title', i.title);
+                a.appendChild(img);
+                a.innerHTML += i.name;
+            });
+        },
     });
-});
 
-/*    nav.forEach((i) => {
-        let ul = document.getElementById("navigation");
-        let li = document.createElement("li");
-        li.setAttribute('class', 'border-right');
-        ul.appendChild(li);
-        let a = document.createElement("a");
-        a.setAttribute('href', '#');
-        li.appendChild(a);
-        let img = document.createElement("img");
-        img.setAttribute('src', i.img);
-        img.setAttribute('title', i.title);
-        a.appendChild(img);
-        a.innerHTML += i.name;
-    });*/
+    // let http = new XMLHttpRequest();
+    // http.open('GET','json/navbar.json',false);
+    // http.setRequestHeader("Content-Type", "application/json");
+    // http.send();
+    // console.log(http.response);
 
 
 //collapse
@@ -201,8 +188,10 @@ $("button").click(function () {
 
     var table_us = [
         {
+            checkbox:"fdsfsdf",
             Table:"User",
             Action:[
+                {img:"images/b_no_favorite.png",name:""},
                 {img:"images/bd_browse.png", name:"Browse"},
                 {img:"images/b_props.png", name:"Structure"},
                 {img:"images/bd_select.png", name:"Search"},
@@ -217,8 +206,10 @@ $("button").click(function () {
             Overhead:"-"
         },
         {
+            checkbox:"fdsfsdf",
             Table:"User_ID",
             Action:[
+                {img:"images/b_no_favorite.png",name:""},
                 {img:"images/bd_browse.png", name:"Browse"},
                 {img:"images/b_props.png", name:"Structure"},
                 {img:"images/bd_select.png", name:"Search"},
@@ -233,8 +224,10 @@ $("button").click(function () {
             Overhead:"-"
         },
         {
+            checkbox:"fdsfsdf",
             Table:"Friend_ID",
             Action:[
+                {img:"images/b_no_favorite.png", name:""},
                 {img:"images/bd_browse.png", name:"Browse"},
                 {img:"images/b_props.png", name:"Structure"},
                 {img:"images/bd_select.png", name:"Search"},
@@ -262,22 +255,31 @@ $("button").click(function () {
 
         Object.keys(table_us[0]).forEach(item => {
             let th = document.createElement("th");
+            th.style.borderRight = "1px solid #FFF"
             tr.appendChild(th);
             let a = document.createElement("a");
+            if(item === "checkbox"){
+                item = ""
+            }
             a.innerText = item;
             th.appendChild(a);
 
         });
 
-        $("#table1 table tr th:eq(1)").attr('colspan', 6);
+        $("#table1 table tr th:eq(2)").attr('colspan', 7);
         $("table tr").css('background-color','#e6e6e6');
         $("#table1 table tr th a").attr({href: '#'});
-        $("#table1 table tr th a:eq(1)").removeAttr("href");
+        $("#table1 table tr th a:eq(2)").removeAttr("href");
 
         for (let i = 0; i < table_us.length; i++) {
             let tr2 = document.createElement("tr");
             //console.log(table_us[i].Action);
             let td = document.createElement("td");
+            let td1 = document.createElement("td");
+            let checkbox = document.createElement("input");
+            checkbox.setAttribute("type", "checkbox")
+            td1.appendChild(checkbox)
+            tr2.appendChild(td1);
             tr2.appendChild(td);
             let a1 = document.createElement("a");
             a1.setAttribute('href', '#');
@@ -398,6 +400,68 @@ $("button").click(function () {
 
 });
 
+    var nav = [
+        {
+            "name": "Databases",
+            "img": "images/s_db.png",
+            "title": "Databases"
+        },
+        {
+            "name": "SQL",
+            "img": "images/b_sql.png",
+            "title": "SQL"
+        },
+        {
+            "name": "Status",
+            "img": "images/s_status.png",
+            "title": "Status"
+        },
+        {
+            "name": "User accounts",
+            "img": "images/s_rights.png",
+            "title": "User accounts"
+        },
+        {
+            "name": "Export",
+            "img": "images/b_export.png",
+            "title": "Export"
+        },
+        {
+            "name": "Import",
+            "img": "images/b_import.png",
+            "title": "Import"
+        },
+        {
+            "name": "Settings",
+            "img": "images/b_tblops.png",
+            "title": "Settings"
+        },
+        {
+            "name": "Replication",
+            "img": "images/s_replication.png",
+            "title": "Replication"
+        },
+        {
+            "name": "Variables",
+            "img": "images/s_vars.png",
+            "title": "Variables"
+        },
+        {
+            "name": "Charsets",
+            "img": "images/s_asci.png",
+            "title": "Charsets"
+        },
+        {
+            "name": "Engines",
+            "img": "images/b_engine.png",
+            "title": "Engines"
+        },
+        {
+            "name": "Plugins",
+            "img": "images/b_plugin.png",
+            "title": "Plugins"
+        }
+    ]
 
 
 
