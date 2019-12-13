@@ -1,0 +1,55 @@
+{
+  "collapse": [
+    {
+      "firstname": "Registracia",
+      "id": "demoout",
+      "child": [
+        {
+          "middlename": "User",
+          "id": "demoin",
+          "children": [
+            {
+              "lastname": "Karen"
+            },
+            {
+              "lastname": "Lilit"
+            },
+            {
+              "lastname": "Arman"
+            }
+          ]
+        },
+        {
+          "middlename": "User_ID",
+          "id": "demoin1",
+          "children": [
+            {
+              "lastname": "2"
+            },
+            {
+              "lastname": "5"
+            },
+            {
+              "lastname": "13"
+            }
+          ]
+        },
+        {
+          "middlename": "Friend_ID",
+          "id": "demoin2",
+          "children": [
+            {
+              "lastname": "12"
+            },
+            {
+              "lastname": "8"
+            },
+            {
+              "lastname": "14"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
