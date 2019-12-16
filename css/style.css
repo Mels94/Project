@@ -134,13 +134,6 @@ fieldset .formelement {
     border-color: #aaa !important;
     background-color: #eee !important;
 }
-.btnsdf{
-    border-radius: 0.85rem !important;
-    line-height: 1.15 !important;
-    font-weight: 700;
-    background-color: #eee !important;
-    border-color: #aaa;
-}
 .btn2{
     border-radius: 0.85rem !important;
     line-height: 1.15 !important;

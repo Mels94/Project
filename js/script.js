@@ -87,6 +87,7 @@ $(document).ready(function () {
                 a.appendChild(img1);
                 let img2 = document.createElement("img");
                 img2.setAttribute('src', 'images/s_db.png');
+                img2.setAttribute('class', 'mx-1');
                 img2.setAttribute('alt', 'db');
                 img2.setAttribute('title', 'Database operations');
                 a.appendChild(img2);
@@ -116,11 +117,12 @@ $(document).ready(function () {
                     img1.setAttribute('class', 'plusMinus');
                     img1.setAttribute('accesskey', '1');
                     a.appendChild(img1);
-                    let img2 = document.createElement("img");
-                    img2.setAttribute('src', 'images/s_db.png');
-                    img2.setAttribute('alt', 'db');
-                    img2.setAttribute('title', 'Database operations');
-                    a.appendChild(img2);
+                    let img3 = document.createElement("img");
+                    img3.setAttribute('src', 'images/b_props.png');
+                    img3.setAttribute('class', 'mx-1');
+                    img3.setAttribute('alt', 'db');
+                    img3.setAttribute('title', 'Database operations');
+                    a.appendChild(img3);
                     a.innerHTML += i.child[j].middlename;
                     let div_in1 = document.createElement("div");
                     div_in1.setAttribute('class', 'collapse in');
@@ -147,12 +149,6 @@ $(document).ready(function () {
         }
     });
 
-/*    var selectallarrow = [
-        {name:"Width selected:", value:"With selected:"},
-        {name:"copy_tbl", value:"Copy table"},
-        {name:"show_create", value:"Show create"},
-        {name:"export", value:"Export"},
-    ];*/
 
 //table_us
     $.ajax({
@@ -163,32 +159,36 @@ $(document).ready(function () {
             $("#page_content").on('click', function () {
                 $(".remove").remove();
 
-/*                let page_content = document.getElementById('page_content');
-                let tableslist = document.createElement("div");
+                let page_content = document.getElementById('page_content');
+                let tableslist = document.getElementById('tableslistcontainer');
+
+/*                let tableslist = document.createElement("div");
                 tableslist.setAttribute('class', 'mt-3');
                 tableslist.setAttribute('id', 'tableslistcontainer');
-                page_content.appendChild(tableslist);
-                let form = document.createElement("form");
-                tableslist.appendChild(form);
+                let form1 = document.createElement("form");
                 let fieldset = document.createElement("fieldset");
                 fieldset.setAttribute('id', 'tableFilter1');
+                form1.appendChild(fieldset);
                 let legend = document.createElement("legend");
                 legend.innerText = "Filters";
                 fieldset.appendChild(legend);
-                let div = document.createElement("div");
-                div.setAttribute('class', 'formelement my-2');
-                fieldset.appendChild(div);
+                let div1 = document.createElement("div");
+                div1.setAttribute('class', 'formelement my-2');
                 let label = document.createElement("label");
                 label.setAttribute('for', 'filterText');
                 label.innerText = "Containing the word:";
-                div.appendChild(label);
-                let input = document.createElement("input");
-                input.setAttribute('type', 'text');
-                input.setAttribute('id', 'filterText');
-                input.setAttribute('class', 'p-1');
-                div.appendChild(input);*/
+                div1.appendChild(label);
+                let input1 = document.createElement("input");
+                input1.setAttribute('type', 'text');
+                input1.setAttribute('id', 'filterText');
+                input1.setAttribute('class', 'p-1');
+                div1.appendChild(input1);
+                fieldset.appendChild(div1);
+                form1.appendChild(fieldset);
+                tableslist.appendChild(form1);*/
 
-
+                //let table1 = document.createElement("div");
+                //table1.setAttribute('id', 'table1');
                 let table1 = document.getElementById("table1");
                 let table = document.createElement("table");
                 table.setAttribute('class', 'table-sm data remove');
@@ -209,13 +209,12 @@ $(document).ready(function () {
                 });
 
                 $("#table1 table tr th:eq(2)").attr('colspan', 7);
-                $("table tr").css('background-color','#e6e6e6');
+                $("#table1 table tr").css('background-color','#e6e6e6');
                 $("#table1 table tr th a").attr({href: '#'});
                 $("#table1 table tr th a:eq(2)").removeAttr("href");
 
                 for (let i = 0; i < data.table_us.length; i++) {
                     let tr2 = document.createElement("tr");
-                    //console.log(table_us[i].Action);
                     let td = document.createElement("td");
                     let td1 = document.createElement("td");
                     let checkbox = document.createElement("input");
@@ -259,14 +258,12 @@ $(document).ready(function () {
                     let td7 = document.createElement("td");
                     td7.innerText = data.table_us[i].Overhead;
                     tr2.appendChild(td7);
-                    let td8 = document.createElement("td");
                 }
 
                 let tr3 = document.createElement("tr");
                 tr3.setAttribute('id', 'last');
                 table.appendChild(tr3);
                 Object.keys(data.table_us[0]).forEach(item => {
-                    console.log(item);
                     let th1 = document.createElement("th");
                     tr3.appendChild(th1);
                     let p = document.createElement("p");
@@ -302,7 +299,6 @@ $(document).ready(function () {
                         if (item === "Overhead"){
                             p.innerText = `0 B`;
                         }
-
                     }
                     temp = [];
                     temp1 = [];
@@ -310,6 +306,38 @@ $(document).ready(function () {
                 });
                 $("#table1 table #last th:eq(2)").attr('colspan', 7);
                 $("#table1 table #last").css('background-color','#e6e6e6');
+
+                tableslist.appendChild(table1);
+
+                let table1_chack = document.createElement("div");
+                table1_chack.setAttribute('id', 'table1_chack');
+                table1_chack.setAttribute('class', 'remove');
+                //let table1_chack = document.getElementById("table1_chack");
+                let img1 = document.createElement("img");
+                img1.setAttribute('class', 'selectallarrow');
+                img1.setAttribute('src', 'images/arrow_ltr.png');
+                img1.setAttribute('alt', 'arrow');
+                table1_chack.appendChild(img1);
+                let input2 = document.createElement("input");
+                input2.setAttribute('type', 'checkbox');
+                input2.setAttribute('id', 'tablesForm_checkall');
+                input2.setAttribute('class', 'checkall_box');
+                input2.setAttribute('title', 'Check all');
+                table1_chack.appendChild(input2);
+                let label = document.createElement("label");
+                label.setAttribute('for', 'tablesForm_checkall');
+                label.innerText = "Check all";
+                table1_chack.appendChild(label);
+                let select = document.createElement("select");
+                select.setAttribute('class', 'select_bar');
+                select.setAttribute('name', 'submit_mult');
+                let option = document.createElement("option");
+                option.setAttribute('value', 'With selected');
+                option.innerText = "With selected";
+                select.appendChild(option);
+                table1_chack.appendChild(select);
+
+                tableslist.appendChild(table1_chack);
 
             });
         }
