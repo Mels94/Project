@@ -76,7 +76,7 @@ $(document).ready(function () {
                 a.setAttribute('class', 'btn px-0');
                 a.setAttribute('data-toggle', 'collapse');
                 a.setAttribute('data-target', '#' + i.id);
-                a.setAttribute('id', 'table');
+                a.setAttribute('id', 'page_content');
                 minus_plus.appendChild(a);
                 let img1 = document.createElement("img");
                 img1.setAttribute('src', 'images/b_plus.png');
@@ -147,6 +147,12 @@ $(document).ready(function () {
         }
     });
 
+/*    var selectallarrow = [
+        {name:"Width selected:", value:"With selected:"},
+        {name:"copy_tbl", value:"Copy table"},
+        {name:"show_create", value:"Show create"},
+        {name:"export", value:"Export"},
+    ];*/
 
 //table_us
     $.ajax({
@@ -154,11 +160,38 @@ $(document).ready(function () {
         type: "GET",
         dataType: "json",
         success: function (data) {
-            $("#table").on('click', function () {
+            $("#page_content").on('click', function () {
                 $(".remove").remove();
+
+/*                let page_content = document.getElementById('page_content');
+                let tableslist = document.createElement("div");
+                tableslist.setAttribute('class', 'mt-3');
+                tableslist.setAttribute('id', 'tableslistcontainer');
+                page_content.appendChild(tableslist);
+                let form = document.createElement("form");
+                tableslist.appendChild(form);
+                let fieldset = document.createElement("fieldset");
+                fieldset.setAttribute('id', 'tableFilter1');
+                let legend = document.createElement("legend");
+                legend.innerText = "Filters";
+                fieldset.appendChild(legend);
+                let div = document.createElement("div");
+                div.setAttribute('class', 'formelement my-2');
+                fieldset.appendChild(div);
+                let label = document.createElement("label");
+                label.setAttribute('for', 'filterText');
+                label.innerText = "Containing the word:";
+                div.appendChild(label);
+                let input = document.createElement("input");
+                input.setAttribute('type', 'text');
+                input.setAttribute('id', 'filterText');
+                input.setAttribute('class', 'p-1');
+                div.appendChild(input);*/
+
+
                 let table1 = document.getElementById("table1");
                 let table = document.createElement("table");
-                table.setAttribute('class', 'table-sm mx-3 remove');
+                table.setAttribute('class', 'table-sm data remove');
                 table1.appendChild(table);
                 let tr = document.createElement("tr");
                 table.appendChild(tr);
@@ -282,11 +315,6 @@ $(document).ready(function () {
         }
     });
 
-    let job_table1 = document.getElementById("job_table1");
-    let img = document.createElement("img");
-    img.setAttribute('src', 'images/b_help.png');
-    img.setAttribute('alt', 'help');
-    job_table1.appendChild(img);
 
 
 
