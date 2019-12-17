@@ -1,0 +1,23 @@
+{
+  "new_db": [
+    {
+      "checkbox": "fdsfsdf",
+      "Database": "User",
+      "Collation": "utf8_general_ci",
+      "Action": "Check privileges"
+    },
+    {
+      "checkbox": "fdsfsdf",
+      "Database": "User_ID",
+      "Collation": "utf8_general_ci",
+      "Action": "Check privileges"
+    },
+    {
+      "checkbox": "fdsfsdf",
+      "Database": "Friend_ID",
+      "Collation": "utf8_general_ci",
+      "Action": "Check privileges"
+
+    }
+  ]
+}

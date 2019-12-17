@@ -142,7 +142,123 @@ $(document).ready(function () {
         }
     });
 
+//new_db
+    $.ajax({
+        url: "../json/new_db/new_db.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            let tabledatabases = document.getElementById("tabledatabases");
+            let table = document.createElement("table");
+            table.setAttribute('class', 'table-sm data');
+            tabledatabases.appendChild(table);
+            let tr = document.createElement("tr");
+            table.appendChild(tr);
 
+            Object.keys(data.new_db[0]).forEach(item => {
+                let th = document.createElement("th");
+                th.style.borderRight = "1px solid #FFF";
+                tr.appendChild(th);
+                let a = document.createElement("a");
+                if(item === "checkbox"){
+                    item = ""
+                }
+                a.innerText = item;
+                th.appendChild(a);
+            });
+
+            $("#tabledatabases table tr").css('background-color','#e6e6e6');
+            $("#tabledatabases table tr th a").attr({href: '#'});
+            $("#tabledatabases table tr th a:eq(3)").removeAttr("href");
+
+            for (let i = 0; i < data.new_db.length; i++) {
+                let tr2 = document.createElement("tr");
+                let td = document.createElement("td");
+                let td1 = document.createElement("td");
+                let checkbox = document.createElement("input");
+                checkbox.setAttribute("type", "checkbox");
+                td.appendChild(checkbox);
+                tr2.appendChild(td);
+                tr2.appendChild(td1);
+                let a1 = document.createElement("a");
+                a1.setAttribute('href', '#');
+                a1.innerText = data.new_db[i].Database;
+                td1.appendChild(a1);
+                table.appendChild(tr2);
+                let td2 = document.createElement("td");
+                td2.innerText = data.new_db[i].Collation;
+                tr2.appendChild(td2);
+                let td3 = document.createElement("td");
+                let img = document.createElement("img");
+                img.setAttribute('src', '../images/s_rights.png');
+                img.setAttribute('alt', 'rights');
+                img.setAttribute('title', 'Check privileges');
+                td3.appendChild(img);
+                td3.innerHTML += "&nbsp;" + data.new_db[i].Action;
+                tr2.appendChild(td3);
+            }
+
+            let tr3 = document.createElement("tr");
+            tr3.setAttribute('id', 'last');
+            table.appendChild(tr3);
+            Object.keys(data.new_db[0]).forEach(item => {
+                let th1 = document.createElement("th");
+                tr3.appendChild(th1);
+                let p = document.createElement("p");
+                p.style.marginBottom = '0px';
+                var temp = [], temp1 = [];
+                for (let k in data.new_db){
+                    console.log(item);
+                    if(item === "checkbox"){
+                        p.innerText = ""
+                    }
+                    if (item === "Database"){
+                        p.innerText = `Total: ${data.new_db.length}`;
+                    }
+                    if (item === "Collation"){
+                        p.innerText = data.new_db[k].Collation;
+                    }
+                }
+
+                th1.appendChild(p)
+            });
+            $("#tabledatabases table #last").css('background-color','#e6e6e6');
+
+
+
+            /*                let table1_chack = document.createElement("div");
+                            table1_chack.setAttribute('id', 'table1_chack');
+                            table1_chack.setAttribute('class', 'remove');
+                            //let table1_chack = document.getElementById("table1_chack");
+                            let img1 = document.createElement("img");
+                            img1.setAttribute('class', 'selectallarrow');
+                            img1.setAttribute('src', 'images/arrow_ltr.png');
+                            img1.setAttribute('alt', 'arrow');
+                            table1_chack.appendChild(img1);
+                            let input2 = document.createElement("input");
+                            input2.setAttribute('type', 'checkbox');
+                            input2.setAttribute('id', 'tablesForm_checkall');
+                            input2.setAttribute('class', 'checkall_box');
+                            input2.setAttribute('title', 'Check all');
+                            table1_chack.appendChild(input2);
+                            let label = document.createElement("label");
+                            label.setAttribute('for', 'tablesForm_checkall');
+                            label.innerText = "Check all";
+                            table1_chack.appendChild(label);
+                            let select = document.createElement("select");
+                            select.setAttribute('class', 'select_bar');
+                            select.setAttribute('name', 'submit_mult');
+                            let option = document.createElement("option");
+                            option.setAttribute('value', 'With selected');
+                            option.innerText = "With selected";
+                            select.appendChild(option);
+                            table1_chack.appendChild(select);
+
+                            tableslist.appendChild(table1_chack);*/
+
+
+        }
+    });
 
 
 

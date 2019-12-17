@@ -154,10 +154,13 @@ fieldset .formelement {
     border-radius: 0.85rem;
     line-height: 1.15;
 }
-#tableFilter3{
-    width: 100%;
-    padding: 0.1em 1em;
-    margin-top: 2em;
-    border: #aaa 1px solid;
-    border-radius: 4px 4px 0 0;
+#page_content1 form{
+    margin-left: 15px;
+}
+#table_chack i{
+    margin-left: 2em;
+}
+#table_chack button{
+    border: none;
+    background-color: transparent;
 }

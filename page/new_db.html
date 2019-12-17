@@ -82,11 +82,10 @@
             </nav>
 
             <div class="mx-2" id="page_content1">
-                <div class="container-fluid">
-                    <div class="row">
+
                         <h2 id="db_title">Databases</h2>
-                    </div>
-                    <div class="row">
+
+
                         <form action="">
                             <p><strong>
                                 <label for="text_create_db">
@@ -109,17 +108,34 @@
                             </select>
                             <input id="buttonGo" type="submit" class="btn btn-light" value="Create">
                         </form>
+
+                <fieldset id="tableFilter1">
+                    <legend>Filters</legend>
+                    <div class="formelement my-2">
+                        <label for="filterText">Containing the word:</label>
+                        <input type="text" id="filterText" class="p-1">
                     </div>
-                    <div class="row">
-                        <fieldset id="tableFilter3">
-                            <legend>Filters</legend>
-                            <div class="formelement my-2">
-                                <label for="filterText">Containing the word:</label>
-                                <input type="text" name="filterText" id="filterText">
-                            </div>
-                        </fieldset>
+                </fieldset>
+
+                    <div id="tableslistcontainer">
+
+                        <div id="tabledatabases"></div>
+
+                        <div id="table_chack">
+                            <img class="selectallarrow" src="../images/arrow_ltr.png" alt="arrow">
+                            <input type="checkbox" id="dbStatsForm_checkall" class="checkall_box" title="Check all">
+                            <label for="dbStatsForm_checkall">Check all</label>
+                            <i>With selected:</i>
+                            <button type="submit" value="Drop" title="Drop">
+                                <span>
+                                    <img src="../images/b_deltbl.png" alt="deltbl" title="Drop">&nbsp;Drop
+                                </span>
+
+                            </button>
+                        </div>
+
                     </div>
-                </div>
+
             </div>
 
         </div>
