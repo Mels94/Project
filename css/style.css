@@ -4,6 +4,10 @@ html{
 body{
     font-family: sans-serif;
 }
+h2{
+    padding: 10px 0 10px 3px;
+    color: #777;
+}
 #serverinfo{
     background-color: #888;
     padding: 0.3em 0.9em;
@@ -60,6 +64,9 @@ body{
     display: inline-block;
     margin-bottom: 1em;
 }
+#select_server{
+    max-inline-size: -webkit-fill-available;
+}
 .btn1{
     margin-top: 20px;
 }
@@ -105,6 +112,9 @@ fieldset .formelement{
 input[type=checkbox], input[type=text], input[type=number]{
     margin: 6px;
 }
+input[type=text]{
+    padding: 4px;
+}
 input[type=number]{
     width: 50px;
 }
@@ -137,4 +147,17 @@ fieldset .formelement {
 .btn2{
     border-radius: 0.85rem !important;
     line-height: 1.15 !important;
+}
+
+/*new_databases*/
+#buttonGo{
+    border-radius: 0.85rem;
+    line-height: 1.15;
+}
+#tableFilter3{
+    width: 100%;
+    padding: 0.1em 1em;
+    margin-top: 2em;
+    border: #aaa 1px solid;
+    border-radius: 4px 4px 0 0;
 }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>phpmyadmin</title>
+
+    <link rel='stylesheet' href='../css/style.css'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css'
+          integrity='sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt' crossorigin='anonymous'>
+    <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
+          integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN' crossorigin='anonymous'>
+    <script src='../js/jquery-3.4.1.min.js'></script>
+    <script src='../js/new_db/new_db.js'></script>
+
+
+</head>
+<body>
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-2 bg-light px-3'>
+            <div id="pma_navigation_header">
+                <div class='mx-auto text-center'>
+                    <a href="../index.html">
+                        <img src='../images/logo_left.png' alt='phpMyAdmin'>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" class="ml-1"><img src="../images/b_home.png" alt="Home" title="Home"></a>
+                    <a href="#" class="ml-1"><img src="../images/s_loggoff.png" alt="Empty session data"
+                                                  title="Empty session data"></a>
+                    <a href="#" class="ml-1"><img src="../images/b_docs.png" alt="phpMyAdmin documentation"
+                                                  title="phpMyAdmin documentation"></a>
+                    <a href="#" class="ml-1"><img src="../images/b_sqlhelp.png" alt="Documentation"
+                                                  title="Documentation"></a>
+                    <a href="#" class="ml-1"><img src="../images/s_cog.png" alt="Navigation panel settings"
+                                                  title="Navigation panel settings"></a>
+                    <a href="#" class="ml-1"><img src="../images/s_reload.png" alt="Reload navigation panel"
+                                                  title="Reload navigation panel"></a>
+                </div>
+                <div class="mt-3">
+                    <form action="">
+                        <label for="select_server" class="d-block">Current server:</label>
+                        <select class='custom-select-sm' id="select_server">
+                            <option>(Servers) ...</option>
+                            <option value="1" selected>phpMyAdmin demo - MariaDB (root)</option>
+                            <option value='2' selected>phpMyAdmin demo - MySQL (root)</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+
+            <div class='btn1'>
+                <button type='button' class='btn btn-outline-info btn-sm' title="Recent tables">Recent</button>
+                <button type='button' class='btn btn-outline-info btn-sm'>Favorites</button>
+
+            </div>
+            <div class="mt-2">
+                <input class="form-control form-control-sm" type="text"
+                       placeholder='Type to filter these. Enter to search all'>
+            </div>
+
+
+            <div class='container py-3' id="collapse">
+
+            </div>
+
+
+        </div>
+
+
+        <div class='col-10 px-0'>
+            <div id="serverinfo">
+                <img src="../images/s_host.png" alt="host">
+                <a href="#">Server: 127.0.0.1</a>
+            </div>
+            <nav class='navbar-expand-sm'>
+                <div id='navbarNav'>
+                    <ul class='navbar-nav' id="navigation">
+
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="mx-2" id="page_content1">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2 id="db_title">Databases</h2>
+                    </div>
+                    <div class="row">
+                        <form action="">
+                            <p><strong>
+                                <label for="text_create_db">
+                                    <img src="../images/b_newdb.png" alt="newdb">&nbsp;Create database
+                                </label>
+                                <a href="#">
+                                    <img src="../images/b_help.png" alt="help" title="Documentation">
+                                </a>
+                            </strong></p>
+                            <input type="text" name="new_db" id="text_create_db" placeholder="Database name" required>
+                            <select name="db_collation" class="mx-2">
+                                <option value="collation">Collation</option>
+                                <option value=""></option>
+                                <optgroup label="ascii" title="US ASCII">
+                                    <option value="ascii_bin" title="West European, binary">ascii_bin</option>
+                                    <option value="ascii_general_ci" title="West European, case-insensitive">
+                                        ascii_general_ci
+                                    </option>
+                                </optgroup>
+                            </select>
+                            <input id="buttonGo" type="submit" class="btn btn-light" value="Create">
+                        </form>
+                    </div>
+                    <div class="row">
+                        <fieldset id="tableFilter3">
+                            <legend>Filters</legend>
+                            <div class="formelement my-2">
+                                <label for="filterText">Containing the word:</label>
+                                <input type="text" name="filterText" id="filterText">
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'
+        integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo'
+        crossorigin='anonymous'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js'
+        integrity='sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P'
+        crossorigin='anonymous'></script>
+</body>
+</html>

@@ -1,34 +1,13 @@
 $(document).ready(function () {
-    /*    var count = 0;
-        // Toggle plus minus icon on show hide of collapse element
-        $(".collapse").on('show.bs.collapse', function () {
-            $(this).prev(".minus_plus").find(".fa").removeClass("fa-plus").addClass("fa-minus");
-        }).on('hide.bs.collapse', function () {
-            $(this).prev(".minus_plus").find(".fa").removeClass("fa-minus").addClass("fa-plus");
-        });
-
-        $(".collapse-parent").on('click', function () {
-            if (count % 2 == 0) {
-                $(this).find(".fa").removeClass("fa-plus").addClass("fa-minus");
-            } else {
-                $(this).find(".fa").removeClass("fa-minus").addClass("fa-plus");
-                $(".collapse").on('hide.bs.collapse', function () {
-                    $(this).find(".fa").removeClass("fa-minus").addClass("fa-plus");
-                    $(this).find(".collapse").removeClass("show")
-                });
-            }
-            count++;
-        });*/
-
 
 //pluse-minus
     $(document).on('click', '.plusMinus', function () {
         if ($(this).attr('accesskey') === '1') {
             $(this).attr('accesskey', 0);
-            $(this).attr('src', 'images/b_minus.png');
+            $(this).attr('src', '../images/b_minus.png');
         } else {
             $(this).attr('accesskey', 1);
-            $(this).attr('src', 'images/b_plus.png');
+            $(this).attr('src', '../images/b_plus.png');
         }
         console.log($(this).attr('accesskey'));
     });
@@ -36,7 +15,7 @@ $(document).ready(function () {
 
 //navbar
     $.ajax({
-        url: "json/navbar.json",
+        url: "../json/new_db/navbar_new.json",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -60,7 +39,7 @@ $(document).ready(function () {
 
 //collapse
     $.ajax({
-        url: "json/collapse.json",
+        url: "../json/collapse.json",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -71,11 +50,11 @@ $(document).ready(function () {
                 col.appendChild(div);
                 let div_new = document.createElement("div");
                 let a2 = document.createElement("a");
-                a2.setAttribute('href', 'page/new_db.html');
+                a2.setAttribute('href', 'new_db.html');
                 a2.setAttribute('class', 'btn px-0 ml-4');
                 div_new.appendChild(a2);
                 let img4 = document.createElement("img");
-                img4.setAttribute('src', 'images/b_newdb.png');
+                img4.setAttribute('src', '../images/b_newdb.png');
                 img4.setAttribute('class', 'mr-1');
                 img4.setAttribute('alt', 'newdb');
                 img4.setAttribute('title', 'New');
@@ -93,14 +72,14 @@ $(document).ready(function () {
                 a.setAttribute('id', 'page_content');
                 minus_plus.appendChild(a);
                 let img1 = document.createElement("img");
-                img1.setAttribute('src', 'images/b_plus.png');
+                img1.setAttribute('src', '../images/b_plus.png');
                 img1.setAttribute('alt', 'plus');
                 img1.setAttribute('title', 'Expand/Collapse');
                 img1.setAttribute('class', 'plusMinus');
                 img1.setAttribute('accesskey', '1');
                 a.appendChild(img1);
                 let img2 = document.createElement("img");
-                img2.setAttribute('src', 'images/s_db.png');
+                img2.setAttribute('src', '../images/s_db.png');
                 img2.setAttribute('class', 'mx-1');
                 img2.setAttribute('alt', 'db');
                 img2.setAttribute('title', 'Database operations');
@@ -125,14 +104,14 @@ $(document).ready(function () {
                     a.setAttribute('data-target', '#' + i.child[j].id);
                     minus_plus1.appendChild(a);
                     let img1 = document.createElement("img");
-                    img1.setAttribute('src', 'images/b_plus.png');
+                    img1.setAttribute('src', '../images/b_plus.png');
                     img1.setAttribute('alt', 'plus');
                     img1.setAttribute('title', 'Expand/Collapse');
                     img1.setAttribute('class', 'plusMinus');
                     img1.setAttribute('accesskey', '1');
                     a.appendChild(img1);
                     let img3 = document.createElement("img");
-                    img3.setAttribute('src', 'images/b_props.png');
+                    img3.setAttribute('src', '../images/b_props.png');
                     img3.setAttribute('class', 'mx-1');
                     img3.setAttribute('alt', 'db');
                     img3.setAttribute('title', 'Database operations');
@@ -162,6 +141,9 @@ $(document).ready(function () {
             });
         }
     });
+
+
+
 
 
 
