@@ -22,7 +22,7 @@ $(document).ready(function () {
 
 
 //pluse-minus
-    $(document).on('click', '.plusMinus', function () {
+/*    $(document).on('click', '.plusMinus', function () {
         if ($(this).attr('accesskey') === '1') {
             $(this).attr('accesskey', 0);
             $(this).attr('src', 'images/b_minus.png');
@@ -31,6 +31,20 @@ $(document).ready(function () {
             $(this).attr('src', 'images/b_plus.png');
         }
         console.log($(this).attr('accesskey'));
+    });*/
+
+    //pluse-minus
+    $(document).on('click', '.minus_plus', function () {
+        if ($($(this)[0].children[0].children[0]).attr('accesskey') === '1') {
+            // $(this).attr('accesskey', 0);
+
+            $($(this)[0].children[0].children[0]).attr('accesskey',0);
+            $($(this)[0].children[0].children[0]).attr('src', 'images/b_minus.png');
+        } else {
+            // $(this).attr('accesskey', 1);
+            $($(this)[0].children[0].children[0]).attr('accesskey',1);
+            $($(this)[0].children[0].children[0]).attr('src', 'images/b_plus.png');
+        }
     });
 
 
@@ -64,29 +78,29 @@ $(document).ready(function () {
         type: "GET",
         dataType: "json",
         success: function (data) {
+
+            let col = document.getElementById("collapse");
+            let div_new = document.createElement("div");
+            let a2 = document.createElement("a");
+            a2.setAttribute('class', 'btn px-0 ml-4');
+            a2.setAttribute('id', 'new');
+            div_new.appendChild(a2);
+            let img4 = document.createElement("img");
+            img4.setAttribute('src', 'images/b_newdb.png');
+            img4.setAttribute('class', 'mr-1');
+            img4.setAttribute('alt', 'newdb');
+            img4.setAttribute('title', 'New');
+            a2.appendChild(img4);
+            a2.innerHTML += "New";
+            col.appendChild(div_new);
             data.collapse.forEach((i) => {
-                let col = document.getElementById("collapse");
                 let div = document.createElement("div");
                 div.setAttribute('class', 'collapse-group');
                 col.appendChild(div);
-                let div_new = document.createElement("div");
-                let a2 = document.createElement("a");
-                a2.setAttribute('href', 'page/new_db.html');
-                a2.setAttribute('class', 'btn px-0 ml-4');
-                div_new.appendChild(a2);
-                let img4 = document.createElement("img");
-                img4.setAttribute('src', 'images/b_newdb.png');
-                img4.setAttribute('class', 'mr-1');
-                img4.setAttribute('alt', 'newdb');
-                img4.setAttribute('title', 'New');
-                a2.appendChild(img4);
-                a2.innerHTML += "New";
-                div.appendChild(div_new);
                 let minus_plus = document.createElement("div");
                 minus_plus.setAttribute('class', 'minus_plus');
                 div.appendChild(minus_plus);
                 let a = document.createElement("a");
-                a.setAttribute('href', 'page/tables.html');
                 a.setAttribute('class', 'btn px-0');
                 a.setAttribute('data-toggle', 'collapse');
                 a.setAttribute('data-target', '#' + i.id);
@@ -162,6 +176,298 @@ $(document).ready(function () {
             });
         }
     });
+
+
+    //new_db
+    $.ajax({
+        url: "json/new_db.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            $("#new").on('click', function () {
+                $("#main_pane_left").css({display: "none"});
+                $("#main_pane_right").css({display: "none"});
+                $("#table_user").css({display: "none"});
+                $("#new_database").css({display: "block"});
+                $(".remove").remove();
+
+                let tabledatabases = document.getElementById("tabledatabases");
+                let table = document.createElement("table");
+                table.setAttribute('class', 'table-sm data remove');
+                tabledatabases.appendChild(table);
+                let tr = document.createElement("tr");
+                table.appendChild(tr);
+
+                Object.keys(data.new_db[0]).forEach(item => {
+                    let th = document.createElement("th");
+                    th.style.borderRight = "1px solid #FFF";
+                    tr.appendChild(th);
+                    let a = document.createElement("a");
+                    if(item === "checkbox"){
+                        item = ""
+                    }
+                    a.innerText = item;
+                    th.appendChild(a);
+                });
+
+                $("#tabledatabases table tr").css('background-color','#e6e6e6');
+                $("#tabledatabases table tr th a").attr({href: '#'});
+                $("#tabledatabases table tr th a:eq(3)").removeAttr("href");
+
+                for (let i = 0; i < data.new_db.length; i++) {
+                    let tr2 = document.createElement("tr");
+                    let td = document.createElement("td");
+                    let td1 = document.createElement("td");
+                    let checkbox = document.createElement("input");
+                    checkbox.setAttribute("type", "checkbox");
+                    td.appendChild(checkbox);
+                    tr2.appendChild(td);
+                    tr2.appendChild(td1);
+                    let a1 = document.createElement("a");
+                    a1.setAttribute('href', '#');
+                    a1.innerText = data.new_db[i].Database;
+                    td1.appendChild(a1);
+                    table.appendChild(tr2);
+                    let td2 = document.createElement("td");
+                    td2.innerText = data.new_db[i].Collation;
+                    tr2.appendChild(td2);
+                    let td3 = document.createElement("td");
+                    let img = document.createElement("img");
+                    img.setAttribute('src', 'images/s_rights.png');
+                    img.setAttribute('alt', 'rights');
+                    img.setAttribute('title', 'Check privileges');
+                    td3.appendChild(img);
+                    td3.innerHTML += "&nbsp;" + data.new_db[i].Action;
+                    tr2.appendChild(td3);
+                }
+
+                let tr3 = document.createElement("tr");
+                tr3.setAttribute('id', 'last');
+                table.appendChild(tr3);
+                Object.keys(data.new_db[0]).forEach(item => {
+                    let th1 = document.createElement("th");
+                    tr3.appendChild(th1);
+                    let p = document.createElement("p");
+                    p.style.marginBottom = '0px';
+                    for (let k in data.new_db){
+                        if(item === "checkbox"){
+                            p.innerText = ""
+                        }
+                        if (item === "Database"){
+                            p.innerText = `Total: ${data.new_db.length}`;
+                        }
+                        if (item === "Collation"){
+                            p.innerText = data.new_db[k].Collation;
+                        }
+                    }
+
+                    th1.appendChild(p)
+                });
+                $("#tabledatabases table #last").css('background-color','#e6e6e6');
+
+            });
+        }
+    });
+
+
+    //table_us
+    $.ajax({
+        url: "json/table_us.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            $("#page_content").on('click', function () {
+            $("#main_pane_left").css({display: "none"});
+            $("#main_pane_right").css({display: "none"});
+            $("#new_database").css({display: "none"});
+            $("#table_user").css({display: "block"});
+            $(".remove").remove();
+
+            let table1 = document.getElementById("table1");
+            let table = document.createElement("table");
+            table.setAttribute('class', 'table-sm data remove');
+            table1.appendChild(table);
+            let tr = document.createElement("tr");
+            table.appendChild(tr);
+
+            Object.keys(data.table_us[0]).forEach(item => {
+                let th = document.createElement("th");
+                th.style.borderRight = "1px solid #FFF";
+                tr.appendChild(th);
+                let a = document.createElement("a");
+                if(item === "checkbox"){
+                    item = ""
+                }
+                a.innerText = item;
+                th.appendChild(a);
+            });
+
+            $("#table1 table tr th:eq(2)").attr('colspan', 7);
+            $("#table1 table tr").css('background-color','#e6e6e6');
+            $("#table1 table tr th a").attr({href: '#'});
+            $("#table1 table tr th a:eq(2)").removeAttr("href");
+
+            for (let i = 0; i < data.table_us.length; i++) {
+                let tr2 = document.createElement("tr");
+                let td = document.createElement("td");
+                let td1 = document.createElement("td");
+                let checkbox = document.createElement("input");
+                checkbox.setAttribute("type", "checkbox");
+                td1.appendChild(checkbox);
+                tr2.appendChild(td1);
+                tr2.appendChild(td);
+                let a1 = document.createElement("a");
+                a1.setAttribute('href', '#');
+                a1.innerText = data.table_us[i].Table;
+                td.appendChild(a1);
+                table.appendChild(tr2);
+
+                for (let j = 0; j < data.table_us[i].Action.length; j++) {
+                    let td2 = document.createElement("td");
+                    tr2.appendChild(td2);
+                    let a2 = document.createElement("a");
+                    a2.setAttribute('href', '#');
+                    td2.appendChild(a2);
+                    let img = document.createElement("img");
+                    img.setAttribute('src', data.table_us[i].Action[j].img);
+                    a2.appendChild(img);
+                    a2.innerHTML += data.table_us[i].Action[j].name;
+                }
+
+                let td3 = document.createElement("td");
+                td3.innerText = data.table_us[i].Rows;
+                tr2.appendChild(td3);
+                let td4 = document.createElement("td");
+                td4.innerText = data.table_us[i].Type;
+                tr2.appendChild(td4);
+                let td5 = document.createElement("td");
+                td5.innerText = data.table_us[i].Collation;
+                tr2.appendChild(td5);
+                let td6 = document.createElement("td");
+                let a3 = document.createElement("a");
+                a3.setAttribute('href', '#');
+                td6.appendChild(a3);
+                a3.innerText = data.table_us[i].Size;
+                tr2.appendChild(td6);
+                let td7 = document.createElement("td");
+                td7.innerText = data.table_us[i].Overhead;
+                tr2.appendChild(td7);
+            }
+
+            let tr3 = document.createElement("tr");
+            tr3.setAttribute('id', 'last');
+            table.appendChild(tr3);
+            Object.keys(data.table_us[0]).forEach(item => {
+                let th1 = document.createElement("th");
+                tr3.appendChild(th1);
+                let p = document.createElement("p");
+                p.style.marginBottom = '0px';
+                var temp = [], temp1 = [];
+                for (let k in data.table_us){
+                    if(item === "checkbox"){
+                        p.innerText = ""
+                    }
+                    if (item === "Table"){
+                        p.innerText = `${data.table_us.length} tables`;
+                    }
+                    if (item === "Action"){
+                        p.innerText = `Sum`;
+                    }
+                    if (item === "Rows"){
+                        temp.push(+data.table_us[k].Rows);
+                        let sum = temp.reduce((a, b) => a + b);
+                        p.innerText = sum;
+                    }
+                    if (item === "Type"){
+                        p.innerText = `InnoDB`;
+                    }
+                    if (item === "Collation"){
+                        p.innerText = `utf8mb4_0900_ai_ci`;
+                    }
+                    if (item === "Size"){
+                        let size_arr = data.table_us[k].Size.split(" ");
+                        temp1.push(+size_arr[0]);
+                        let sum1 = temp1.reduce((a, b) => a + b);
+                        p.innerText = `${sum1}.0 KiB`;
+                    }
+                    if (item === "Overhead"){
+                        p.innerText = `0 B`;
+                    }
+                }
+                temp = [];
+                temp1 = [];
+                th1.appendChild(p)
+            });
+            $("#table1 table #last th:eq(2)").attr('colspan', 7);
+            $("#table1 table #last").css('background-color','#e6e6e6');
+
+
+
+            /*                let table1_chack = document.createElement("div");
+                            table1_chack.setAttribute('id', 'table1_chack');
+                            table1_chack.setAttribute('class', 'remove');
+                            //let table1_chack = document.getElementById("table1_chack");
+                            let img1 = document.createElement("img");
+                            img1.setAttribute('class', 'selectallarrow');
+                            img1.setAttribute('src', 'images/arrow_ltr.png');
+                            img1.setAttribute('alt', 'arrow');
+                            table1_chack.appendChild(img1);
+                            let input2 = document.createElement("input");
+                            input2.setAttribute('type', 'checkbox');
+                            input2.setAttribute('id', 'tablesForm_checkall');
+                            input2.setAttribute('class', 'checkall_box');
+                            input2.setAttribute('title', 'Check all');
+                            table1_chack.appendChild(input2);
+                            let label = document.createElement("label");
+                            label.setAttribute('for', 'tablesForm_checkall');
+                            label.innerText = "Check all";
+                            table1_chack.appendChild(label);
+                            let select = document.createElement("select");
+                            select.setAttribute('class', 'select_bar');
+                            select.setAttribute('name', 'submit_mult');
+                            let option = document.createElement("option");
+                            option.setAttribute('value', 'With selected');
+                            option.innerText = "With selected";
+                            select.appendChild(option);
+                            table1_chack.appendChild(select);
+
+                            tableslist.appendChild(table1_chack);*/
+
+
+            });
+        }
+    });
+
+
+
+
+
+/*    $('#buttonGo').on('click', function () {
+        var name = $('#text_create_db').val();
+        var collation = $( "select[name=db_collation] option:selected" ).text();
+        alert();
+
+        var sendInfo = {
+            Name: name,
+            Collation: collation
+        };
+
+        $.ajax({
+            url: "json/new_db.json",
+            type: "POST",
+            dataType: "json",
+            success: function (msg) {
+                if (msg) {
+                    alert("Somebody" + name + " was added in list !");
+                    location.reload(true);
+                } else {
+                    alert("Cannot add to list !");
+                }
+            },
+            data: sendInfo
+        })
+
+    });*/
 
 
 

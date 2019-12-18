@@ -70,6 +70,32 @@ h2{
 .btn1{
     margin-top: 20px;
 }
+
+/*new_databases*/
+#new_database{
+    display: none;
+    width: 100%;
+}
+#buttonGo{
+    border-radius: 0.85rem;
+    line-height: 1.15;
+}
+#page_content1 form{
+    margin-left: 15px;
+}
+#table_chack i{
+    margin-left: 2em;
+}
+#table_chack button{
+    border: none;
+    background-color: transparent;
+}
+
+/*table_user*/
+#table_user{
+    display: none;
+    width: 100%;
+}
 #tableFilter1{
     padding: 0.1em 1em;
     margin-top: 1em;
@@ -149,18 +175,3 @@ fieldset .formelement {
     line-height: 1.15 !important;
 }
 
-/*new_databases*/
-#buttonGo{
-    border-radius: 0.85rem;
-    line-height: 1.15;
-}
-#page_content1 form{
-    margin-left: 15px;
-}
-#table_chack i{
-    margin-left: 2em;
-}
-#table_chack button{
-    border: none;
-    background-color: transparent;
-}

@@ -82,7 +82,7 @@
 
 
             <div class='row' id="content">
-                            <div class='col-7 px-0 pt-3' id="main_pane_left">
+                <div class='col-7 px-0 pt-3' id="main_pane_left">
                                 <div class='card mb-3'>
                                     <h3 class='card-header bg-grey-light text-white py-0'>General settings</h3>
                                     <div class='card-body bg-light'>
@@ -179,8 +179,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class='col-5 pl-3 pr-2 pt-3' id="main_pane_right">
+                <div class='col-5 pl-3 pr-2 pt-3' id="main_pane_right">
                                 <div class='card'>
                                     <h3 class='card-header bg-grey-light text-white py-0'>Database server</h3>
                                     <div class='card bg-light'>
@@ -235,7 +234,122 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                <div class="new_db mx-2" id="new_database">
+                    <h2 id="db_title">Databases</h2>
+
+                    <form action="">
+                        <p><strong>
+                            <label for="text_create_db">
+                                <img src="images/b_newdb.png" alt="newdb">&nbsp;Create database
+                            </label>
+                            <a href="#">
+                                <img src="images/b_help.png" alt="help" title="Documentation">
+                            </a>
+                        </strong></p>
+                        <input type="text" name="new_db" id="text_create_db" placeholder="Database name" required>
+                        <select name="db_collation" class="mx-2">
+                            <option value="collation">Collation</option>
+                            <option value="collation1">Collation1</option>
+                            <option value=""></option>
+                            <optgroup label="ascii" title="US ASCII">
+                                <option value="ascii_bin" title="West European, binary">ascii_bin</option>
+                                <option value="ascii_general_ci" title="West European, case-insensitive">
+                                    ascii_general_ci
+                                </option>
+                            </optgroup>
+                        </select>
+                        <input id="buttonGo" type="submit" class="btn btn-light" value="Create">
+                    </form>
+
+                    <fieldset id="tableFilter1">
+                        <legend>Filters</legend>
+                        <div class="formelement my-2">
+                            <label for="filterText">Containing the word:</label>
+                            <input type="text" id="filterText" class="p-1">
                         </div>
+                    </fieldset>
+
+                    <div id="tableslistcontainer">
+
+                        <div id="tabledatabases"></div>
+
+                        <div id="table_chack">
+                            <img class="selectallarrow" src="images/arrow_ltr.png" alt="arrow">
+                            <input type="checkbox" id="dbStatsForm_checkall" class="checkall_box" title="Check all">
+                            <label for="dbStatsForm_checkall">Check all</label>
+                            <i>With selected:</i>
+                            <button type="submit" value="Drop" title="Drop">
+                                <span>
+                                    <img src="images/b_deltbl.png" alt="deltbl" title="Drop">&nbsp;Drop
+                                </span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="tables mx-2" id="table_user">
+                    <div class="mt-3" id="tableslistcontainer">
+                        <form action="">
+                            <fieldset id="tableFilter1">
+                                <legend>Filters</legend>
+                                <div class="formelement my-2">
+                                    <label for="filterText">Containing the word:</label>
+                                    <input type="text" id="filterText" class="p-1">
+                                </div>
+                            </fieldset>
+                        </form>
+
+                        <div id="table1"></div>
+
+                        <div id="table1_chack">
+                            <img class="selectallarrow" src="images/arrow_ltr.png" alt="arrow">
+                            <input type="checkbox" id="tablesForm_checkall" class="checkall_box" title="Check all">
+                            <label for="tablesForm_checkall">Check all</label>
+                            <select class="select_bar" name="submit_mult">
+                                <option value="With selected:" selected="selected">With selected:</option>
+                                <option value="copy_tabl">Copy table</option>
+                                <option value="show_create">Show create</option>
+                                <option value="export">Export</option>
+                                <optgroup label="Delete data or table">
+                                    <option value="empty_tbl">Empty</option>
+                                    <option value="drop_tbl">Drop</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <p class="print_ignore">
+                        <a href="#">
+                            <span><img src="images/b_print.png" alt="print">&nbsp;Print&nbsp;</span>
+                        </a>
+                        <a href="#">
+                            <span><img src="images/b_tblanalyse.png" alt="tblanalyse">&nbsp;Data dictionary</span>
+                        </a>
+                    </p>
+                    <form action="">
+                        <fieldset id="tableFilter2">
+                            <legend>
+                                <img src="images/b_table_add.png" alt="table_add">&nbsp;Create table
+                            </legend>
+                            <div class="formelement my-2">
+                                Name:<input type="text" class="p-1">
+                            </div>
+                            <div class="formelement my-2">
+                                Number of columns:<input type="number" min="1" value="4" class="p-1">
+                            </div>
+                        </fieldset>
+                        <fieldset class="tblFooters" id="tableFilter3">
+                            <input type="submit" class="btn btn-light btn2" value="Go">
+                        </fieldset>
+                    </form>
+                </div>
+
+
+            </div>
 
 
 
