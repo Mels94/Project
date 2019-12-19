@@ -50,6 +50,111 @@
           ]
         }
       ]
+    },
+
+    {
+      "firstname": "Registracia1",
+      "id": "demoout1",
+      "child": [
+        {
+          "middlename": "User_1",
+          "id": "demoin11",
+          "children": [
+            {
+              "lastname": "Karen"
+            },
+            {
+              "lastname": "Lilit"
+            },
+            {
+              "lastname": "Arman"
+            }
+          ]
+        },
+        {
+          "middlename": "User_ID_1",
+          "id": "demoin12",
+          "children": [
+            {
+              "lastname": "2"
+            },
+            {
+              "lastname": "5"
+            },
+            {
+              "lastname": "13"
+            }
+          ]
+        },
+        {
+          "middlename": "Friend_ID_1",
+          "id": "demoin13",
+          "children": [
+            {
+              "lastname": "12"
+            },
+            {
+              "lastname": "8"
+            },
+            {
+              "lastname": "14"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "firstname": "Registracia2",
+      "id": "demoout2",
+      "child": [
+        {
+          "middlename": "User_2",
+          "id": "demoin21",
+          "children": [
+            {
+              "lastname": "Karen"
+            },
+            {
+              "lastname": "Lilit"
+            },
+            {
+              "lastname": "Arman"
+            }
+          ]
+        },
+        {
+          "middlename": "User_ID_2",
+          "id": "demoin22",
+          "children": [
+            {
+              "lastname": "2"
+            },
+            {
+              "lastname": "5"
+            },
+            {
+              "lastname": "13"
+            }
+          ]
+        },
+        {
+          "middlename": "Friend_ID_2",
+          "id": "demoin23",
+          "children": [
+            {
+              "lastname": "12"
+            },
+            {
+              "lastname": "8"
+            },
+            {
+              "lastname": "14"
+            }
+          ]
+        }
+      ]
     }
+
   ]
 }

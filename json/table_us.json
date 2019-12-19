@@ -1,121 +1,367 @@
 {
-  "table_us": [
+  "tables": [
     {
-      "checkbox": "fdsfsdf",
-      "Table": "User",
-      "Action": [
+      "table_us": [
         {
-          "img": "images/b_no_favorite.png",
-          "name": ""
+          "checkbox": "fdsfsdf",
+          "Table": "User",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "4",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "32.0 KiB",
+          "Overhead": "-"
         },
         {
-          "img": "images/bd_browse.png",
-          "name": "Browse"
+          "checkbox": "fdsfsdf",
+          "Table": "User_ID",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "5",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "16.0 KiB",
+          "Overhead": "-"
         },
         {
-          "img": "images/b_props.png",
-          "name": "Structure"
-        },
-        {
-          "img": "images/bd_select.png",
-          "name": "Search"
-        },
-        {
-          "img": "images/b_insrow.png",
-          "name": "Insert"
-        },
-        {
-          "img": "images/bd_empty.png",
-          "name": "Empty"
-        },
-        {
-          "img": "images/b_drop.png",
-          "name": "Drop"
+          "checkbox": "fdsfsdf",
+          "Table": "Friend_ID",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "4512",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "48.0 KiB",
+          "Overhead": "-"
         }
-      ],
-      "Rows": "4",
-      "Type": "InnoDB",
-      "Collation": "utf8mb4_0900_ai_ci",
-      "Size": "32.0 KiB",
-      "Overhead": "-"
+      ]
     },
     {
-      "checkbox": "fdsfsdf",
-      "Table": "User_ID",
-      "Action": [
+      "table_us2": [
         {
-          "img": "images/b_no_favorite.png",
-          "name": ""
+          "checkbox": "fdsfsdf",
+          "Table": "User_1",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "4",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "32.0 KiB",
+          "Overhead": "-"
         },
         {
-          "img": "images/bd_browse.png",
-          "name": "Browse"
+          "checkbox": "fdsfsdf",
+          "Table": "User_ID_1",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "5",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "16.0 KiB",
+          "Overhead": "-"
         },
         {
-          "img": "images/b_props.png",
-          "name": "Structure"
-        },
-        {
-          "img": "images/bd_select.png",
-          "name": "Search"
-        },
-        {
-          "img": "images/b_insrow.png",
-          "name": "Insert"
-        },
-        {
-          "img": "images/bd_empty.png",
-          "name": "Empty"
-        },
-        {
-          "img": "images/b_drop.png",
-          "name": "Drop"
+          "checkbox": "fdsfsdf",
+          "Table": "Friend_ID_1",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "4512",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "48.0 KiB",
+          "Overhead": "-"
         }
-      ],
-      "Rows": "5",
-      "Type": "InnoDB",
-      "Collation": "utf8mb4_0900_ai_ci",
-      "Size": "16.0 KiB",
-      "Overhead": "-"
+      ]
     },
     {
-      "checkbox": "fdsfsdf",
-      "Table": "Friend_ID",
-      "Action": [
+      "table_us3": [
         {
-          "img": "images/b_no_favorite.png",
-          "name": ""
+          "checkbox": "fdsfsdf",
+          "Table": "User_2",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "4",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "32.0 KiB",
+          "Overhead": "-"
         },
         {
-          "img": "images/bd_browse.png",
-          "name": "Browse"
+          "checkbox": "fdsfsdf",
+          "Table": "User_ID_2",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "5",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "16.0 KiB",
+          "Overhead": "-"
         },
         {
-          "img": "images/b_props.png",
-          "name": "Structure"
-        },
-        {
-          "img": "images/bd_select.png",
-          "name": "Search"
-        },
-        {
-          "img": "images/b_insrow.png",
-          "name": "Insert"
-        },
-        {
-          "img": "images/bd_empty.png",
-          "name": "Empty"
-        },
-        {
-          "img": "images/b_drop.png",
-          "name": "Drop"
+          "checkbox": "fdsfsdf",
+          "Table": "Friend_ID_2",
+          "Action": [
+            {
+              "img": "images/b_no_favorite.png",
+              "name": ""
+            },
+            {
+              "img": "images/bd_browse.png",
+              "name": "Browse"
+            },
+            {
+              "img": "images/b_props.png",
+              "name": "Structure"
+            },
+            {
+              "img": "images/bd_select.png",
+              "name": "Search"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Insert"
+            },
+            {
+              "img": "images/bd_empty.png",
+              "name": "Empty"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Drop"
+            }
+          ],
+          "Rows": "4512",
+          "Type": "InnoDB",
+          "Collation": "utf8mb4_0900_ai_ci",
+          "Size": "48.0 KiB",
+          "Overhead": "-"
         }
-      ],
-      "Rows": "4512",
-      "Type": "InnoDB",
-      "Collation": "utf8mb4_0900_ai_ci",
-      "Size": "48.0 KiB",
-      "Overhead": "-"
+      ]
     }
   ]
 }
