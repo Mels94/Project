@@ -2,19 +2,26 @@
   "new_db": [
     {
       "checkbox": "fdsfsdf",
-      "Database": "User",
+      "Database": "Registracia",
       "Collation": "utf8_general_ci",
       "Action": "Check privileges"
     },
     {
       "checkbox": "fdsfsdf",
-      "Database": "User_ID",
+      "Database": "Registracia1",
       "Collation": "utf8_general_ci",
       "Action": "Check privileges"
     },
     {
       "checkbox": "fdsfsdf",
-      "Database": "Friend_ID",
+      "Database": "Registracia2",
+      "Collation": "utf8_general_ci",
+      "Action": "Check privileges"
+
+    },
+    {
+      "checkbox": "fdsfsdf",
+      "Database": "Registracia3",
       "Collation": "utf8_general_ci",
       "Action": "Check privileges"
 
