@@ -185,3 +185,43 @@ fieldset .formelement {
     line-height: 1.15 !important;
 }
 
+/*table_user*/
+#table_user{
+    width: 100%;
+}
+.result_query .alert{
+    margin-bottom: 0;
+    border-bottom: none !important;
+}
+.alert-success{
+    color: #000 !important;
+    background-color: #ebf8a4 !important;
+    border-color: #a2d246 !important;
+}
+.result_query .sqlOuter{
+    background-color: #e5e5e5;
+}
+.result_query code{
+    font-size: 10px;
+    color: #444;
+}
+.result_query .sql{
+    display: block;
+    padding: 1em;
+}
+.cm-keyword{
+    color: #708;
+}
+.cm-operator{
+    color: #f0f;
+}
+.cm-s-default .cm-variable-2{
+    color: #05a;
+}
+.cm-sql-doc{
+    border-bottom: 1px dotted #000;
+    color: inherit;
+}
+.cm-sql-doc:hover{
+    text-decoration: underline;
+}

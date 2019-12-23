@@ -82,7 +82,7 @@
 
 
             <div class='row' id="content">
-                <div class='col-7 px-0 pt-3' id="main_pane_left">
+                <div style="display: none" class='col-7 px-0 pt-3' id="main_pane_left">
                     <div class='card mb-3'>
                         <h3 class='card-header bg-grey-light text-white py-0'>General settings</h3>
                         <div class='card-body bg-light'>
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-5 pl-3 pr-2 pt-3' id="main_pane_right">
+                <div style="display: none" class='col-5 pl-3 pr-2 pt-3' id="main_pane_right">
                     <div class='card'>
                         <h3 class='card-header bg-grey-light text-white py-0'>Database server</h3>
                         <div class='card bg-light'>
@@ -348,8 +348,26 @@
                     </form>
                 </div>
 
-                <div class="mx-2" id="table_user">
-
+                <div id="table_user">
+                    <div class="result_query mt-3" id="result_user">
+                        <div class="alert alert-success">
+                            <img src="images/s_success.png" alt="success">
+                            MySQL returned an empty result set (i.e. zero rows). (Query took 0.0004 seconds.)
+                        </div>
+                        <div class="sqlOuter">
+                            <code class="sql">
+<!--                                <pre>SELECT * FROM `credenciales`</pre>-->
+                                <div class="sql-highlight cm-s-default">
+                                    <span class="cm-keyword">
+                                        <a href="#" class="cm-sql-doc">SELECT</a>
+                                    </span>
+                                    <span class="cm-operator">*</span>
+                                    <span class="cm-keyword">FROM</span>
+                                    <span class="cm-variable-2">`credenciales`</span>
+                                </div>
+                            </code>
+                        </div>
+                    </div>
                 </div>
 
 

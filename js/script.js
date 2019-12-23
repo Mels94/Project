@@ -425,7 +425,7 @@ function Func(arg) {
                         }
                         temp = [];
                         temp1 = [];
-                        th1.appendChild(p)
+                        th1.appendChild(p);
                     });
                     $("#table1 table #last th:eq(2)").attr('colspan', 7);
                     $("#table1 table #last").css('background-color', '#e6e6e6');
