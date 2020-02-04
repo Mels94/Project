@@ -1,36 +1,3 @@
-/*    var count = 0;
-    // Toggle plus minus icon on show hide of collapse element
-    $(".collapse").on('show.bs.collapse', function () {
-        $(this).prev(".minus_plus").find(".fa").removeClass("fa-plus").addClass("fa-minus");
-    }).on('hide.bs.collapse', function () {
-        $(this).prev(".minus_plus").find(".fa").removeClass("fa-minus").addClass("fa-plus");
-    });
-
-    $(".collapse-parent").on('click', function () {
-        if (count % 2 == 0) {
-            $(this).find(".fa").removeClass("fa-plus").addClass("fa-minus");
-        } else {
-            $(this).find(".fa").removeClass("fa-minus").addClass("fa-plus");
-            $(".collapse").on('hide.bs.collapse', function () {
-                $(this).find(".fa").removeClass("fa-minus").addClass("fa-plus");
-                $(this).find(".collapse").removeClass("show")
-            });
-        }
-        count++;
-    });*/
-
-
-//pluse-minus
-/*    $(document).on('click', '.plusMinus', function () {
-        if ($(this).attr('accesskey') === '1') {
-            $(this).attr('accesskey', 0);
-            $(this).attr('src', 'images/b_minus.png');
-        } else {
-            $(this).attr('accesskey', 1);
-            $(this).attr('src', 'images/b_plus.png');
-        }
-        console.log($(this).attr('accesskey'));
-    });*/
 
 //pluse-minus
 $(document).on('click', '.minus_plus', function () {

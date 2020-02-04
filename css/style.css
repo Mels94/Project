@@ -8,15 +8,17 @@ h2{
     padding: 10px 0 10px 3px;
     color: #777;
 }
+
+/*-------------------serverinfo-----------------*/
 #serverinfo{
     background-color: #888;
-    padding: 0.3em 0.9em;
-    padding-left: 2.2em;
+    padding: 0.3em 0 0.3em 2.2em;
     overflow: hidden;
 }
 #serverinfo a{
     color: #fff;
 }
+/*-----------------------------navbar------------------------*/
 #navbarNav ul{
     font-weight: bold;
     background-color: #eaeaea;
@@ -25,7 +27,6 @@ h2{
     border-left: 0;
 }
 #navbarNav ul li{
-    border-right: 1px solid #fff;
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
@@ -43,6 +44,23 @@ h2{
     margin-right: 0.5em;
     vertical-align: -3px;
 }
+
+/*----------------------pma_navigation------------------*/
+#pma_navigation_header{
+    text-align: center;
+}
+#pma_navigation_header label{
+    margin-bottom: 1em;
+}
+
+
+/*----------------Collapse------------*/
+#collapse a{
+    padding: 0;
+}
+
+
+/*-----------------------------content----------------------*/
 #content{
     margin: 0 0.5em;
 }
@@ -57,25 +75,8 @@ h2{
 .bg-grey-light{
     background-color: #b9b9b9 !important;
 }
-#pma_navigation_header{
-    text-align: center;
-}
-#pma_navigation_header label{
-    display: inline-block;
-    margin-bottom: 1em;
-}
-#select_server{
-    max-inline-size: -webkit-fill-available;
-}
-.btn1{
-    margin-top: 20px;
-}
-/*Collapse*/
-#collapse a{
-    padding: 0;
-}
 
-/*new_databases*/
+/*-----------------new_databases---------------*/
 #new_database{
     display: none;
     width: 100%;
@@ -84,33 +85,11 @@ h2{
     border-radius: 0.85rem;
     line-height: 1.15;
 }
-#page_content1 form{
-    margin-left: 15px;
-}
-#table_chack i{
-    margin-left: 2em;
-}
-#table_chack button{
-    border: none;
-    background-color: transparent;
-}
-#tabledatabases table:first-of-type tr:nth-child(odd){
-    background: #DFDFDF;
-}
-
-/*table_user*/
-#tables{
-    display: none;
-    width: 100%;
-}
-#tableFilter1{
+.tableFilter{
     padding: 0.1em 1em;
     margin-top: 1em;
     border: #aaa 1px solid;
     border-radius: 4px 4px 0 0;
-}
-#table1 table:first-of-type tr:nth-child(odd){
-    background: #DFDFDF;
 }
 fieldset{
     background-color: #eee;
@@ -128,25 +107,31 @@ fieldset legend{
     width: initial;
     font-size: 1rem;
 }
-fieldset .formelement{
-    float: left;
-    margin-right: 0.5em;
-}
-#tableFilter2{
-    padding: 0.1em 1em;
-    margin-top: 1em;
-    border: #aaa 1px solid;
-    border-radius: 4px 4px 0 0;
+table:first-of-type tr:nth-child(odd){
+    background: #DFDFDF;
 }
 .selectallarrow{
     margin-right: 0.3em;
-    margin-left: 0.6em;
 }
-.data{
+#table_chack i{
+    margin-left: 2em;
+}
+#table_chack button{
+    border: none;
+    background-color: transparent;
+}
+
+
+/*-------------------Tables-----------------*/
+#tables{
+    display: none;
+    width: 100%;
+}
+#tables table{
     margin: 0 0 12px;
 }
-input[type=checkbox], input[type=text], input[type=number]{
-    margin: 6px;
+.select_bar{
+    margin: 0 3em 0 3em;
 }
 input[type=text]{
     padding: 4px;
@@ -154,23 +139,16 @@ input[type=text]{
 input[type=number]{
     width: 50px;
 }
-.select_bar{
-    margin: 0 3em 0 3em;
-}
-.print_ignore{
-    margin-bottom: 1rem;
-}
-fieldset .formelement {
+
+#tables fieldset .formelement {
     float: left;
     margin-right: 0.5em;
 }
-
 .tblFooters{
     padding: 0.5em;
     border-left: #aaa 1px solid;
     border-right: #aaa 1px solid;
     border-bottom: #aaa 1px solid;
-    margin-bottom: 0.5em;
     text-align: right;
     border-radius: 0 0 4px 4px;
     background: #d3dce3;
@@ -185,7 +163,7 @@ fieldset .formelement {
     line-height: 1.15 !important;
 }
 
-/*table_user*/
+/*------------------Table user-------------*/
 #table_user{
     width: 100%;
 }
