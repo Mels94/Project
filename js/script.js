@@ -1,4 +1,3 @@
-
 //pluse-minus
 $(document).on('click', '.minus_plus', function () {
     if ($($(this)[0].children[0].children[0]).attr('accesskey') === '1') {
@@ -21,25 +20,19 @@ $.ajax({
     dataType: "json",
     success: function (data) {
         data.nav.forEach((i) => {
-            let ul = document.getElementById("navigation");
-            let li = document.createElement("li");
-            li.setAttribute('class', 'border-right');
-            ul.appendChild(li);
-            let a = document.createElement("a");
-            a.setAttribute('href', '#');
-            li.appendChild(a);
-            let img = document.createElement("img");
-            img.setAttribute('src', i.img);
-            img.setAttribute('title', i.title);
-            a.appendChild(img);
-            a.innerHTML += i.name;
+            $('#navigation').append(`<li class='border-right'>
+                            <a href="#">
+                                <img src="${i.img}" title="${i.title}"> ${i.name}
+                            </a>
+                        </li>`);
+
         });
     },
 });
 
 
 //collapse
-$.ajax({
+/*$.ajax({
     url: "json/collapse.json",
     type: "GET",
     dataType: "json",
@@ -161,11 +154,76 @@ $.ajax({
             }
         });
     }
+});*/
+
+
+$.ajax({
+    url: "json/collapse.json",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+
+        $('#collapse').append(`<div class='collapse-group'>
+                                <div>
+                                    <a class='btn px-0 ml-4' id="new">
+                                        <img src="images/b_newdb.png" class="mr-1" alt="newdb" title="New">
+                                        New
+                                    </a>
+                                </div>
+                            </div>`);
+        data.collapse.forEach((i, index) => {
+            $('.collapse-group').append(`<div class='minus_plus'>
+                                        <a class='btn px-0' data-toggle='collapse' data-target='#${i.id}' 
+                                                    onclick="Func(${index + 1})" title="Structure">
+                                            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
+                                                 accesskey="1">
+                                            <img src="images/s_db.png" class="mx-1" alt="db" title="Database operations">
+                                            ${i.firstname}
+                                        </a>
+                                    </div>
+                                    <div class='collapse in ml-4' id='${i.id}'>
+                                         <div>
+                                             <a class='btn'>
+                                                 <img src="images/b_table_add.png" class="mr-1" alt="newtb" title="New">
+                                                 New
+                                             </a>
+                                        </div>
+                    
+                                    </div>`);
+            for (let j = 0; j < i.child.length; j++) {
+                $('#' + i.id).append(`<div class="group">
+                                        <div class='minus_plus'>
+                                            <a class='btn' data-toggle='collapse' data-target='#${i.child[j].id}' title="Browse">
+                                                <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
+                                                     accesskey="1">
+                                                <img src="images/b_props.png" class="mx-1" alt="db" title="Structure">
+                                                ${i.child[j].middlename}
+                                            </a>
+                                        </div>
+                                        <div class='collapse in' id='${i.child[j].id}'>
+                                            <div class='group1'>
+                                                <ul class='list'></ul>
+                                            </div>
+                                        </div>
+                                      </div>`);
+
+                for (let k = 0; k < i.child[j].children.length; k++) {
+                    $('#' + i.child[j].id).find('ul').append(`<li class="list-group">
+                                            <a href="#">
+                                                <img src="${i.child[j].children[k].img}" alt="db" class="mx-1" title="${i.child[j].children[k].title}">
+                                                ${i.child[j].children[k].lastname}
+                                            </a> 
+                                       </li>`);
+                }
+            }
+        });
+
+    }
 });
 
 
 //new_db
-$.ajax({
+/*$.ajax({
     url: "json/new_db.json",
     type: "GET",
     dataType: "json",
@@ -260,11 +318,11 @@ $.ajax({
 
         });
     }
-});
+});*/
 
 
 //table_us
-function Func(arg) {
+/*function Func(arg) {
     $.ajax({
         url: "json/tables.json",
         type: "GET",
@@ -403,7 +461,7 @@ function Func(arg) {
                     });
 
 
-                    /*                let table1_chack = document.createElement("div");
+                    /!*                let table1_chack = document.createElement("div");
                                     table1_chack.setAttribute('id', 'table1_chack');
                                     table1_chack.setAttribute('class', 'remove');
                                     //let table1_chack = document.getElementById("table1_chack");
@@ -431,10 +489,10 @@ function Func(arg) {
                                     select.appendChild(option);
                                     table1_chack.appendChild(select);
 
-                                    tableslist.appendChild(table1_chack);*/
+                                    tableslist.appendChild(table1_chack);*!/
                 }
             }
         }
     });
-}
+}*/
 
