@@ -30,6 +30,9 @@ h2{
     border-left: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
+#navbarNav ul li:last-child{
+    border-right: 1px solid #ccc;
+}
 #navbarNav ul li:hover{
     background-color: #efefef;
 }
@@ -165,6 +168,7 @@ input[type=number]{
 
 /*------------------Table user-------------*/
 #table_user{
+    display: none;
     width: 100%;
 }
 .result_query .alert{
