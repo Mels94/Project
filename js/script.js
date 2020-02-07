@@ -162,7 +162,7 @@ $.ajax({
 
 
 //tables
-function Func(arg) {
+/*function Func(arg) {
     $.ajax({
         url: "json/tables.json",
         type: "GET",
@@ -304,5 +304,109 @@ function Func(arg) {
             }
         }
     });
-}
+}*/
 
+
+function Func(arg) {
+    $.ajax({
+        url: "json/tables.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            for (let h = 0; h < data.tables.length; h++) {
+
+                if (arg === h + 1) {
+
+                    $("#main_pane_left").css({display: "none"});
+                    $("#main_pane_right").css({display: "none"});
+                    $("#new_database").css({display: "none"});
+                    $("#tables").css({display: "block"});
+                    $(".remove").remove();
+
+                    $('#tables_user').append(`<table class="table-sm remove"><tr id="tr_th_1"></tr></table>`);
+
+                    Object.keys(data.tables[h].table[0]).forEach(item => {
+                        if (item === "checkbox") {
+                            item = "";
+                        }
+                        $('#tr_th_1').append(`<th><a>${item}</a></th>`);
+                    });
+
+                    $("#tables_user table tr th:eq(2)").attr('colspan', 7);
+                    $("#tables_user table tr").css('background-color', '#e6e6e6');
+                    $("#tables_user table tr th a").attr('href', '#');
+                    $("#tables_user table tr th a:eq(2)").removeAttr('href');
+
+                    for (let i = 0; i < data.tables[h].table.length; i++) {
+                        $('#tables_user table').append(`<tr id="tr_td_${i}">
+                                                            <td><input type="checkbox"></td>
+                                                            <td><a href="#">${data.tables[h].table[i].Table}</a></td>
+                                                        </tr>`);
+
+                        for (let j = 0; j < data.tables[h].table[i].Action.length; j++) {
+
+                            $('#tr_td_' + i).append(`<td>
+                                                    <a href="#">
+                                                        <img src="${data.tables[h].table[i].Action[j].img}">
+                                                        ${data.tables[h].table[i].Action[j].name}
+                                                    </a>
+                                                  </td>`);
+                        }
+                            $('#tr_td_' + i).append(`<td>${data.tables[h].table[i].Rows}</td>
+                                                  <td>${data.tables[h].table[i].Type}</td>
+                                                  <td>${data.tables[h].table[i].Collation}</td>
+                                                  <td><a href="#">${data.tables[h].table[i].Size}</a></td>
+                                                  <td>${data.tables[h].table[i].Overhead}</td>`);
+                    }
+
+                    $('#tables_user table').append(`<tr id="tr_th_2"></tr>`);
+
+                    Object.keys(data.tables[h].table[0]).forEach(item => {
+                        var temp = [], temp1 = [];
+                        for (let k in data.tables[h].table) {
+                            if (item === "checkbox") {
+                                item = "";
+                            }
+                            if (item === "Table") {
+                                item = `${data.tables[h].table.length} tables`;
+                            }
+                            if (item === "Action") {
+                                item = `Sum`;
+                            }
+                            //console.log(temp);
+                            if (item === "Rows") {
+                                temp.push(+data.tables[h].table[k].Rows);
+                                let sum = temp.reduce((a, b) => a + b);
+                                item = sum;
+                            }
+                            if (item === "Type") {
+                                item = `InnoDB`;
+                            }
+                            if (item === "Collation") {
+                                item = `utf8mb4_0900_ai_ci`;
+                            }
+                            if (item === "Size") {
+                                let size_arr = data.tables[h].table[k].Size.split(" ");
+                                temp1.push(+size_arr[0]);
+                                let sum1 = temp1.reduce((a, b) => a + b);
+                                item = `${sum1}.0 KiB`;
+                            }
+                            if (item === "Overhead") {
+                                item = `0 B`;
+                            }
+                        }
+                        temp = []; temp1 = [];
+
+                        $('#tr_th_2').append(`<th>${item}</th>`);
+                    });
+                    $('#tr_th_2 th:eq(2)').attr('colspan', 7);
+                    $('#tr_th_2').css('background-color', '#e6e6e6');
+
+                    $("#tablesForm_checkall").click(function(){
+                        $("input[type=checkbox]").prop('checked', $(this).prop('checked'));
+                    });
+                }
+            }
+        }
+    });
+}
