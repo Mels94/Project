@@ -32,8 +32,8 @@ $.ajax({
 
 
 //collapse
-$.ajax({
-    url: "json/collapse.json",
+/*$.ajax({
+    url: "json/db.json",
     type: "GET",
     dataType: "json",
     success: function (data) {
@@ -62,12 +62,12 @@ $.ajax({
                                                  New
                                              </a>
                                         </div>
-                    
                                     </div>`);
             for (let j = 0; j < i.child.length; j++) {
                 $('#' + i.id).append(`<div class="group">
                                         <div class='minus_plus'>
-                                            <a class='btn' data-toggle='collapse' data-target='#${i.child[j].id}' title="Browse">
+                                            <a class='btn' data-toggle='collapse' data-target='#${i.child[j].id}'
+                                                    title="Browse">
                                                 <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
                                                      accesskey="1">
                                                 <img src="images/b_props.png" class="mx-1" alt="db" title="Structure">
@@ -93,11 +93,92 @@ $.ajax({
         });
 
     }
+});*/
+
+
+
+
+
+
+
+
+
+
+$.ajax({
+    url: "json/db.json",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+        $('#collapse').append(`<div class='collapse-group'>
+                                <div>
+                                    <a class='btn px-0 ml-4' id="new">
+                                        <img src="images/b_newdb.png" alt="newdb" title="New">
+                                        New
+                                    </a>
+                                </div>
+                            </div>`);
+        data.db.forEach((i, index) => {
+            $('.collapse-group').append(`<div class='minus_plus'>
+                                        <a class='btn px-0' data-toggle='collapse' data-target='#${i.id}' 
+                                                    id="${i.id}" title="Structure">
+                                            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
+                                                 accesskey="1">
+                                            <img src="images/s_db.png" alt="db" title="Database operations">
+                                            ${i.name}
+                                        </a>
+                                    </div>
+                                    <div class='collapse in ml-4' id='${i.id}'>
+                                         <div>
+                                             <a class='btn'>
+                                                 <img src="images/b_table_add.png" class="mr-1" alt="newtb" title="New">
+                                                 New
+                                             </a>
+                                        </div>
+                                    </div>`);
+        });
+    }
 });
 
 
-//new_db
 $.ajax({
+    url: "json/table1.json",
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+        //console.log(data);
+        $('.btn').on('click', function () {
+            //console.log($(this)[0].id);
+
+            Object.keys(data.table).forEach(item => {
+                //console.log(item);
+            });
+
+            $.each(data.table, function(i, val ) {
+                //$( "#" + i ).append( document.createTextNode( " - " + val ) );
+                console.log(val);
+
+            });
+
+
+        });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//new_db
+/*$.ajax({
     url: "json/new_db.json",
     type: "GET",
     dataType: "json",
@@ -158,7 +239,7 @@ $.ajax({
             });
         });
     }
-});
+});*/
 
 
 //tables
@@ -175,152 +256,7 @@ $.ajax({
                     $("#main_pane_left").css({display: "none"});
                     $("#main_pane_right").css({display: "none"});
                     $("#new_database").css({display: "none"});
-                    $("#tables").css({display: "block"});
-                    $(".remove").remove();
-
-                    let table1 = document.getElementById("table1");
-                    let table = document.createElement("table");
-                    table.setAttribute('class', 'table-sm data remove');
-                    table1.appendChild(table);
-                    let tr = document.createElement("tr");
-                    table.appendChild(tr);
-
-                    Object.keys(data.tables[h].table[0]).forEach(item => {
-                        let th = document.createElement("th");
-                        th.style.borderRight = "1px solid #FFF";
-                        tr.appendChild(th);
-                        let a = document.createElement("a");
-                        if (item === "checkbox") {
-                            item = ""
-                        }
-                        a.innerText = item;
-                        th.appendChild(a);
-                    });
-
-                    $("#table1 table tr th:eq(2)").attr('colspan', 7);
-                    $("#table1 table tr").css('background-color', '#e6e6e6');
-                    $("#table1 table tr th a").attr({href: '#'});
-                    $("#table1 table tr th a:eq(2)").removeAttr("href");
-
-                    for (let i = 0; i < data.tables[h].table.length; i++) {
-                        let tr2 = document.createElement("tr");
-                        let td = document.createElement("td");
-                        let td1 = document.createElement("td");
-                        let checkbox = document.createElement("input");
-                        checkbox.setAttribute("type", "checkbox");
-                        td1.appendChild(checkbox);
-                        tr2.appendChild(td1);
-                        tr2.appendChild(td);
-                        let a1 = document.createElement("a");
-                        a1.setAttribute('href', '#');
-                        a1.innerText = data.tables[h].table[i].Table;
-                        td.appendChild(a1);
-                        table.appendChild(tr2);
-
-                        for (let j = 0; j < data.tables[h].table[i].Action.length; j++) {
-                            let td2 = document.createElement("td");
-                            tr2.appendChild(td2);
-                            let a2 = document.createElement("a");
-                            a2.setAttribute('href', '#');
-                            td2.appendChild(a2);
-                            let img = document.createElement("img");
-                            img.setAttribute('src', data.tables[h].table[i].Action[j].img);
-                            a2.appendChild(img);
-                            a2.innerHTML += data.tables[h].table[i].Action[j].name;
-                        }
-
-                        let td3 = document.createElement("td");
-                        td3.innerText = data.tables[h].table[i].Rows;
-                        tr2.appendChild(td3);
-                        let td4 = document.createElement("td");
-                        td4.innerText = data.tables[h].table[i].Type;
-                        tr2.appendChild(td4);
-                        let td5 = document.createElement("td");
-                        td5.innerText = data.tables[h].table[i].Collation;
-                        tr2.appendChild(td5);
-                        let td6 = document.createElement("td");
-                        let a3 = document.createElement("a");
-                        a3.setAttribute('href', '#');
-                        td6.appendChild(a3);
-                        a3.innerText = data.tables[h].table[i].Size;
-                        tr2.appendChild(td6);
-                        let td7 = document.createElement("td");
-                        td7.innerText = data.tables[h].table[i].Overhead;
-                        tr2.appendChild(td7);
-                    }
-                    let tr3 = document.createElement("tr");
-                    tr3.setAttribute('id', 'last');
-                    table.appendChild(tr3);
-                    Object.keys(data.tables[h].table[0]).forEach(item => {
-                        let th1 = document.createElement("th");
-                        tr3.appendChild(th1);
-                        let p = document.createElement("p");
-                        p.style.marginBottom = '0px';
-                        var temp = [], temp1 = [];
-                        for (let k in data.tables[h].table) {
-                            if (item === "checkbox") {
-                                p.innerText = ""
-                            }
-                            if (item === "Table") {
-                                p.innerText = `${data.tables[h].table.length} tables`;
-                            }
-                            if (item === "Action") {
-                                p.innerText = `Sum`;
-                            }
-                            if (item === "Rows") {
-                                temp.push(+data.tables[h].table[k].Rows);
-                                let sum = temp.reduce((a, b) => a + b);
-                                p.innerText = sum;
-                            }
-                            if (item === "Type") {
-                                p.innerText = `InnoDB`;
-                            }
-                            if (item === "Collation") {
-                                p.innerText = `utf8mb4_0900_ai_ci`;
-                            }
-                            if (item === "Size") {
-                                let size_arr = data.tables[h].table[k].Size.split(" ");
-                                temp1.push(+size_arr[0]);
-                                let sum1 = temp1.reduce((a, b) => a + b);
-                                p.innerText = `${sum1}.0 KiB`;
-                            }
-                            if (item === "Overhead") {
-                                p.innerText = `0 B`;
-                            }
-                        }
-                        temp = [];
-                        temp1 = [];
-                        th1.appendChild(p);
-                    });
-                    $("#table1 table #last th:eq(2)").attr('colspan', 7);
-                    $("#table1 table #last").css('background-color', '#e6e6e6');
-
-
-                    $("#tablesForm_checkall").click(function(){
-                        $("input[type=checkbox]").prop('checked', $(this).prop('checked'));
-                    });
-
-                }
-            }
-        }
-    });
-}*/
-
-
-function Func(arg) {
-    $.ajax({
-        url: "json/tables.json",
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-            for (let h = 0; h < data.tables.length; h++) {
-
-                if (arg === h + 1) {
-
-                    $("#main_pane_left").css({display: "none"});
-                    $("#main_pane_right").css({display: "none"});
-                    $("#new_database").css({display: "none"});
-                    $("#tables").css({display: "block"});
+                    $("#tables").css({display: "none"});
                     $(".remove").remove();
 
                     $('#tables_user').append(`<table class="table-sm remove"><tr id="tr_th_1"></tr></table>`);
@@ -409,4 +345,35 @@ function Func(arg) {
             }
         }
     });
-}
+}*/
+
+
+//table_data
+/*
+function Func_user(arg) {
+    console.log(arg);
+    $.ajax({
+        url: "json/responsive.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            for (let h = 0; h < data.table_data.length; h++) {
+
+
+                if (arg === h + 1) {
+
+                    $("#main_pane_left").css({display: "none"});
+                    $("#main_pane_right").css({display: "none"});
+                    $("#new_database").css({display: "none"});
+                    $("#tables").css({display: "none"});
+                    $("#table_data").css({display: "block"});
+                    $(".remove").remove();
+
+
+
+
+                }
+            }
+        }
+    });
+}*/

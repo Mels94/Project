@@ -166,8 +166,8 @@ table:first-of-type tr:nth-child(odd){
     line-height: 1.15 !important;
 }
 
-/*------------------Table user-------------*/
-#table_user{
+/*------------------Table_data-------------*/
+#table_data{
     display: none;
     width: 100%;
 }
@@ -206,4 +206,28 @@ table:first-of-type tr:nth-child(odd){
 }
 .cm-sql-doc:hover{
     text-decoration: underline;
+}
+.tools{
+    color: #000;
+    background-color: #d3dce3;
+    text-align: right;
+    border-radius: 0 0 4px 4px;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+.tools form{
+    display: inline;
+}
+.tools a{
+    color: #3a7ead;
+}
+#table_data .responsive_table tr:first-child{
+    box-shadow: inset 0 5px 6px 0 #fff;
+}
+#table_data .responsive_table tr th{
+    border-right: 1px solid #fff;
+    padding-left: 10px;
+}
+#table_data .responsive_table tr td{
+    padding-left: 10px;
 }

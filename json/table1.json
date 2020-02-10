@@ -1,0 +1,34 @@
+{
+  "table": [
+    {
+      "db_id": "demoout",
+      "id": "demoin",
+      "name": "User"
+    },
+    {
+      "db_id": "demoout",
+      "id": "demoin1",
+      "name": "User_ID"
+    },
+    {
+      "db_id": "demoout",
+      "id": "demoin2",
+      "name": "Friend_ID"
+    },
+    {
+      "db_id": "demoout1",
+      "id": "demoin11",
+      "name": "User_1"
+    },
+    {
+      "db_id": "demoout1",
+      "id": "demoin12",
+      "name": "User_ID_1"
+    },
+    {
+      "db_id": "demoout1",
+      "id": "demoin22",
+      "name": "Friend_ID_1"
+    }
+  ]
+}

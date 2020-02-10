@@ -1,0 +1,23 @@
+{
+  "db": [
+    {
+      "name": "Registracia",
+      "id": "demoout"
+    },
+
+    {
+      "name": "Registracia1",
+      "id": "demoout1"
+    },
+
+    {
+      "name": "Registracia2",
+      "id": "demoout2"
+    },
+
+    {
+      "name": "Registracia3",
+      "id": "demoout3"
+    }
+  ]
+}

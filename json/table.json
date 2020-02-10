@@ -1,0 +1,69 @@
+{
+  "table": [
+    {
+      "demoout": [
+        {
+          "id": "demoin",
+          "name": "User"
+        },
+        {
+          "id": "demoin1",
+          "name": "User_ID"
+        },
+        {
+          "id": "demoin2",
+          "name": "Friend_ID"
+        }
+      ]
+    },
+    {
+      "demoout1": [
+        {
+          "id": "demoin11",
+          "name": "User_1"
+        },
+        {
+          "id": "demoin12",
+          "name": "User_ID_1"
+        },
+        {
+          "id": "demoin13",
+          "name": "Friend_ID_1"
+        }
+      ]
+    },
+    {
+      "demoout2": [
+        {
+          "id": "demoin21",
+          "name": "User_2"
+        },
+        {
+          "id": "demoin22",
+          "name": "User_ID_2"
+        },
+        {
+          "id": "demoin23",
+          "name": "Friend_ID_2"
+        }
+      ]
+    },
+    {
+      "demoout3": [
+        {
+          "id": "demoin31",
+          "name": "User_3"
+        },
+        {
+          "id": "demoin32",
+          "name": "User_ID_2"
+        },
+        {
+          "id": "demoin33",
+          "name": "Friend_ID_2"
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,76 @@
+{
+  "table_data": [
+    {
+      "User": [
+        {
+          "checkbox": [
+            {
+              "img": "images/b_edit.png",
+              "name": "Edit"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Copy"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Delete"
+            }
+          ],
+          "id": "5",
+          "name": "Karen",
+          "email": "karencfg@mail.ru",
+          "password": "fghmvsgydj123432bn"
+        }
+      ]
+    },
+    {
+      "User_ID": [
+        {
+          "checkbox": [
+            {
+              "img": "images/b_edit.png",
+              "name": "Edit"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Copy"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Delete"
+            }
+          ],
+          "id": "5",
+          "name": "Karen",
+          "email": "karencfg@mail.ru",
+          "password": "fghmvsgydj123432bn"
+        }
+      ]
+    },
+    {
+      "Friend_ID": [
+        {
+          "checkbox": [
+            {
+              "img": "images/b_edit.png",
+              "name": "Edit"
+            },
+            {
+              "img": "images/b_insrow.png",
+              "name": "Copy"
+            },
+            {
+              "img": "images/b_drop.png",
+              "name": "Delete"
+            }
+          ],
+          "id": "5",
+          "name": "Karen",
+          "email": "karencfg@mail.ru",
+          "password": "fghmvsgydj123432bn"
+        }
+      ]
+    }
+  ]
+}
