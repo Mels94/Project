@@ -113,7 +113,8 @@ $.ajax({
             $('.collapse-group').append(`<div class='minus_plus'>
                                         <a class='btn px-0 get-id' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}'
                                                       title="Structure" >
-                                            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
+                                            <img src="images/ajax_clock_small.gif" id="helppp" alt="help">
+                                            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" id="plusee" class="plusMinus"
                                                  accesskey="1">
                                             <img src="images/s_db.png" alt="db" title="Database operations">
                                             ${i.name}
@@ -135,13 +136,20 @@ $.ajax({
 $(document).on('click','.get-id',function () {
     let id = $(this).attr('data-id');
     $('.remove-' + id).remove();
+        //$('#plusee').css('display', 'none');
+        //$('#helppp').css('display', 'block');
     $.ajax({
-        url: "json/table1.json",
+        url: "json/table.json",
         type: "GET",
         dataType: "json",
+/*        beforeSend: function(){
+            $('#plusee').css('display', 'none');
+            $('#helppp').css('display', 'block');
+        },*/
         success: function (data) {
+
             data.table.forEach((i, k) => {
-                if (id == i.db_id){
+                if (id === i.db_id){
                     $('#' + id).append(`<div class="group">
                                         <div class='minus_plus'>
                                             <a class='btn get-id-1 remove-${id}' data-toggle='collapse' data-target='#${i.id}'
@@ -159,74 +167,11 @@ $(document).on('click','.get-id',function () {
                                         </div>
                                       </div>`);
                 }
-            })
+            });
+            //$('#helppp').css('display', 'none');
         }
     });
 });
-
-
-$(document).on('click','.get-id-1',function () {
-    let id = $(this).attr('data-id-1');
-    $('.remove-' + id).remove();
-    $.ajax({
-        url: "json/columns1.json",
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-            data.columns.forEach((i, k) => {
-                    if (id == i.col_ind){
-                            $('#' + id).append(`<li class="list-group remove-${id}">
-                                            <a href="#">
-                                                <img src="images/pause.png" alt="db" title="Columns">
-                                                ${i.name1}
-                                            </a> 
-                                            <a href="#">
-                                                <img src="images/b_index.png" alt="db" title="Indexes">
-                                                ${i.name2}
-                                            </a> 
-                                       </li>`);
-                    }
-            })
-        }
-    });
-});
-
-
-/*$(document).on('click','.get-id',function () {
-    let id = $(this).attr('data-id');
-    $('.remove-' + id).remove();
-    $.ajax({
-        url: "json/table.json",
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-            data.table.forEach((i, k) => {
-                Object.keys(data.table[k]).forEach(item => {
-                    if (item == id){
-                        for (let j of i[item]){
-                            $('#' + id).append(`<div class="group">
-                                        <div class='minus_plus'>
-                                            <a class='btn get-id-1 remove-${id}' data-toggle='collapse' data-target='#${j.id}'
-                                                    data-id-1 ='${j.id}' title="Browse">
-                                                <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
-                                                     accesskey="1">
-                                                <img src="images/b_props.png" class="mx-1" alt="db" title="Structure">
-                                                ${j.name}
-                                            </a>
-                                        </div>
-                                        <div class='collapse in ul_group' id='${j.id}'>
-                                            <div class='group1'>
-                                                <ul class='list'></ul>
-                                            </div>
-                                        </div>
-                                      </div>`);
-                        }
-                    }
-                })
-            })
-        }
-    });
-});*/
 
 
 /*$(document).on('click','.get-id-1',function () {
@@ -238,22 +183,18 @@ $(document).on('click','.get-id-1',function () {
         dataType: "json",
         success: function (data) {
             data.columns.forEach((i, k) => {
-                Object.keys(data.columns[k]).forEach(item => {
-                    if (item == id){
-                        for (let j of i[item]){
+                    if (id === i.col_ind){
                             $('#' + id).append(`<li class="list-group remove-${id}">
                                             <a href="#">
                                                 <img src="images/pause.png" alt="db" title="Columns">
-                                                ${j.name1}
+                                                ${i.name1}
                                             </a> 
                                             <a href="#">
                                                 <img src="images/b_index.png" alt="db" title="Indexes">
-                                                ${j.name2}
+                                                ${i.name2}
                                             </a> 
                                        </li>`);
-                        }
                     }
-                })
             })
         }
     });

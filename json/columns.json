@@ -1,106 +1,70 @@
 {
   "columns": [
     {
-      "demoin": [
-        {
-          "name1": "Columns",
-          "name2": "Index"
-        }
-      ]
+      "col_ind": "demoin",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin1": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin1",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin2": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin2",
+      "name1": "Columns",
+      "name2": "Index"
     },
 
 
     {
-      "demoin11": [
-        {
-          "name1": "Index--isfheiufieifer",
-          "name2": "Columns--dhkhguiefg"
-        }
-      ]
+      "col_ind": "demoin11",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin12": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin12",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin13": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin13",
+      "name1": "Columns",
+      "name2": "Index"
     },
 
 
     {
-      "demoin21": [
-        {
-          "name1": "Index--isfheiufieifer",
-          "name2": "Columns--dhkhguiefg"
-        }
-      ]
+      "col_ind": "demoin21",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin22": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin22",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin23": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin23",
+      "name1": "Columns",
+      "name2": "Index"
     },
 
 
     {
-      "demoin31": [
-        {
-          "name1": "Index--isfheiuffer",
-          "name2": "Columns--dhkiefg"
-        }
-      ]
+      "col_ind": "demoin31",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin32": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin32",
+      "name1": "Columns",
+      "name2": "Index"
     },
     {
-      "demoin33": [
-        {
-          "name1": "Index",
-          "name2": "Columns"
-        }
-      ]
+      "col_ind": "demoin33",
+      "name1": "Columns",
+      "name2": "Index"
     }
   ]
 }

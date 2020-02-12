@@ -234,3 +234,7 @@ table:first-of-type tr:nth-child(odd){
 #table_data .responsive_table tr td{
     padding-left: 10px;
 }
+
+#helppp{
+    display: none;
+}
