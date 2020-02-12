@@ -96,29 +96,6 @@ $.ajax({
 });*/
 
 
-/*$(document).on('click','.get-id',function () {
-    let id = $(this).attr('data-id');
-    $.ajax({
-        url: "json/table1.json",
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-
-            data.table.forEach((i, k) => {
-
-                if (id == i.db_id){
-
-                }
-            })
-        }
-    });
-});*/
-
-
-
-
-
-
 $.ajax({
     url: "json/db.json",
     type: "GET",
@@ -134,8 +111,8 @@ $.ajax({
                             </div>`);
         data.db.forEach((i, index) => {
             $('.collapse-group').append(`<div class='minus_plus'>
-                                        <a class='btn px-0 get-id' data-toggle='collapse' data-target='#${i.id}' data-id ='${i.id}'
-                                                     title="Structure" >
+                                        <a class='btn px-0 get-id' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}'
+                                                      title="Structure" >
                                             <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
                                                  accesskey="1">
                                             <img src="images/s_db.png" alt="db" title="Database operations">
@@ -154,8 +131,69 @@ $.ajax({
     }
 });
 
+
 $(document).on('click','.get-id',function () {
-let id = $(this).attr('data-id');
+    let id = $(this).attr('data-id');
+    $('.remove-' + id).remove();
+    $.ajax({
+        url: "json/table1.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            data.table.forEach((i, k) => {
+                if (id == i.db_id){
+                    $('#' + id).append(`<div class="group">
+                                        <div class='minus_plus'>
+                                            <a class='btn get-id-1 remove-${id}' data-toggle='collapse' data-target='#${i.id}'
+                                                    data-id-1='${i.id}' title="Browse">
+                                                <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
+                                                     accesskey="1">
+                                                <img src="images/b_props.png" class="mx-1" alt="db" title="Structure">
+                                                ${i.name}
+                                            </a>
+                                        </div>
+                                        <div class='collapse in ul_group' id='${i.id}'>
+                                            <div class='group1'>
+                                                <ul class='list'></ul>
+                                            </div>
+                                        </div>
+                                      </div>`);
+                }
+            })
+        }
+    });
+});
+
+
+$(document).on('click','.get-id-1',function () {
+    let id = $(this).attr('data-id-1');
+    $('.remove-' + id).remove();
+    $.ajax({
+        url: "json/columns1.json",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            data.columns.forEach((i, k) => {
+                    if (id == i.col_ind){
+                            $('#' + id).append(`<li class="list-group remove-${id}">
+                                            <a href="#">
+                                                <img src="images/pause.png" alt="db" title="Columns">
+                                                ${i.name1}
+                                            </a> 
+                                            <a href="#">
+                                                <img src="images/b_index.png" alt="db" title="Indexes">
+                                                ${i.name2}
+                                            </a> 
+                                       </li>`);
+                    }
+            })
+        }
+    });
+});
+
+
+/*$(document).on('click','.get-id',function () {
+    let id = $(this).attr('data-id');
     $('.remove-' + id).remove();
     $.ajax({
         url: "json/table.json",
@@ -188,10 +226,10 @@ let id = $(this).attr('data-id');
             })
         }
     });
-});
+});*/
 
 
-$(document).on('click','.get-id-1',function () {
+/*$(document).on('click','.get-id-1',function () {
     let id = $(this).attr('data-id-1');
     $('.remove-' + id).remove();
     $.ajax({
@@ -219,7 +257,7 @@ $(document).on('click','.get-id-1',function () {
             })
         }
     });
-});
+});*/
 
 
 
