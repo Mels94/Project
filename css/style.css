@@ -64,6 +64,9 @@ h2{
 #collapse .ul_group{
     margin-left: 46px;
 }
+#collapse .collapse_img{
+    display: inline;
+}
 
 
 /*-----------------------------content----------------------*/
@@ -235,6 +238,10 @@ table:first-of-type tr:nth-child(odd){
     padding-left: 10px;
 }
 
-#helppp{
+/*.ajax_clock{
     display: none;
-}
+}*/
+/*
+.asd{
+    display: none;
+}*/

@@ -1,8 +1,7 @@
 //pluse-minus
-$(document).on('click', '.minus_plus', function () {
+/*$(document).on('click', '.minus_plus', function () {
     if ($($(this)[0].children[0].children[0]).attr('accesskey') === '1') {
         // $(this).attr('accesskey', 0);
-
         $($(this)[0].children[0].children[0]).attr('accesskey', 0);
         $($(this)[0].children[0].children[0]).attr('src', 'images/b_minus.png');
     } else {
@@ -10,6 +9,17 @@ $(document).on('click', '.minus_plus', function () {
         $($(this)[0].children[0].children[0]).attr('accesskey', 1);
         $($(this)[0].children[0].children[0]).attr('src', 'images/b_plus.png');
     }
+});*/
+$(document).on('click', '.minus_plus1', function () {
+
+    let k = $(this).attr('data-id');
+    //$('#' + k).remove();
+    console.log($(this));
+/*    if ($(this)[0].children[0].children[0].attr('accesskey') === '1'){
+        console.log("gfhjk");
+        $(this)[0].children[0].children[0].attr('src', 'images/b_minus.png');
+    }*/
+
 });
 
 
@@ -111,12 +121,18 @@ $.ajax({
                             </div>`);
         data.db.forEach((i, index) => {
             $('.collapse-group').append(`<div class='minus_plus'>
-                                        <a class='btn px-0 get-id' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}'
-                                                      title="Structure" >
-                                            <img src="images/ajax_clock_small.gif" id="helppp" alt="help">
-                                            <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" id="plusee" class="plusMinus"
-                                                 accesskey="1">
-                                            <img src="images/s_db.png" alt="db" title="Database operations">
+
+                                        <a class='btn px-0 get-id minus_plus1' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure">
+                                              <div id="load${i.id}" class="collapse_img plus_icon">
+                                                 <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                                              </div>
+                                        </a>
+                                        <a>
+                                              <div class="collapse_img">
+                                                 <img src="images/s_db.png" alt="db" title="Database operations">
+                                              </div>
+                                        </a>
+                                        <a class='btn px-0 get-id minus_plus1' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure">
                                             ${i.name}
                                         </a>
                                     </div>
@@ -136,16 +152,23 @@ $.ajax({
 $(document).on('click','.get-id',function () {
     let id = $(this).attr('data-id');
     $('.remove-' + id).remove();
-        //$('#plusee').css('display', 'none');
-        //$('#helppp').css('display', 'block');
+
     $.ajax({
         url: "json/table.json",
         type: "GET",
         dataType: "json",
-/*        beforeSend: function(){
-            $('#plusee').css('display', 'none');
-            $('#helppp').css('display', 'block');
-        },*/
+        beforeSend: function(){
+
+            //console.log($('#asd' + id)[0].children);
+/*            $('#asd' + id)[0].children[0].remove();
+            $('#asd' + id).append(`<img src="images/ajax_clock_small.gif" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="0">`);*/
+
+
+            //$('.plus' + id).css('display', 'none');
+            //$('#ajax' + id).css('display', 'block');
+
+
+        },
         success: function (data) {
 
             data.table.forEach((i, k) => {
@@ -168,7 +191,14 @@ $(document).on('click','.get-id',function () {
                                       </div>`);
                 }
             });
-            //$('#helppp').css('display', 'none');
+/*            setTimeout(function () {
+                $('#asd' + id)[0].children[0].remove();
+                $('#asd' + id).append(`<img src="images/b_minus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">`);
+            }, 1000);*/
+
+            //$('.ajax' + id).css('display', 'none');
+            //$('.plus' + id).css('display', 'block');
+
         }
     });
 });
