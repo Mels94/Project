@@ -10,17 +10,6 @@
         $($(this)[0].children[0].children[0]).attr('src', 'images/b_plus.png');
     }
 });*/
-$(document).on('click', '.minus_plus1', function () {
-
-    let k = $(this).attr('data-id');
-    //$('#' + k).remove();
-    console.log($(this));
-/*    if ($(this)[0].children[0].children[0].attr('accesskey') === '1'){
-        console.log("gfhjk");
-        $(this)[0].children[0].children[0].attr('src', 'images/b_minus.png');
-    }*/
-
-});
 
 
 //navbar
@@ -121,9 +110,8 @@ $.ajax({
                             </div>`);
         data.db.forEach((i, index) => {
             $('.collapse-group').append(`<div class='minus_plus'>
-
-                                        <a class='btn px-0 get-id minus_plus1' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure">
-                                              <div id="load${i.id}" class="collapse_img plus_icon">
+                                        <a class='btn px-0 get-id minus_${i.id}' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure" aria-expanded="false">
+                                              <div id="load${i.id}" class="collapse_img">
                                                  <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
                                               </div>
                                         </a>
@@ -132,8 +120,8 @@ $.ajax({
                                                  <img src="images/s_db.png" alt="db" title="Database operations">
                                               </div>
                                         </a>
-                                        <a class='btn px-0 get-id minus_plus1' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure">
-                                            ${i.name}
+                                        <a class='btn px-0 get-id minus_${i.id}' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure" aria-expanded="false">
+                                              ${i.name}
                                         </a>
                                     </div>
                                     <div class='collapse in ml-4' id='${i.id}'>
@@ -158,28 +146,31 @@ $(document).on('click','.get-id',function () {
         type: "GET",
         dataType: "json",
         beforeSend: function(){
-
-            //console.log($('#asd' + id)[0].children);
-/*            $('#asd' + id)[0].children[0].remove();
-            $('#asd' + id).append(`<img src="images/ajax_clock_small.gif" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="0">`);*/
-
-
-            //$('.plus' + id).css('display', 'none');
-            //$('#ajax' + id).css('display', 'block');
-
-
+            $('#load' + id)[0].children[0].remove();
+            if ($('.minus_' + id)[0].attributes[5].value === 'true'){
+                $('#load' + id).append(`<img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus">`);
+            } else {
+                $('#load' + id).append(`<img src="images/ajax_clock_small.gif" alt="ajax_clock_small">`);
+            }
         },
         success: function (data) {
-
             data.table.forEach((i, k) => {
                 if (id === i.db_id){
                     $('#' + id).append(`<div class="group">
                                         <div class='minus_plus'>
-                                            <a class='btn get-id-1 remove-${id}' data-toggle='collapse' data-target='#${i.id}'
-                                                    data-id-1='${i.id}' title="Browse">
-                                                <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus"
-                                                     accesskey="1">
-                                                <img src="images/b_props.png" class="mx-1" alt="db" title="Structure">
+                                      
+                                            <a class='btn get-id-1 minus_${i.id} remove-${id}' data-toggle='collapse' data-target='#${i.id}' data-id-1='${i.id}' title="Browse" aria-expanded="false">
+                                                <div id="loading${i.id}" class="collapse_img">
+                                                    <img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">
+                                                </div>
+                                            </a>
+                                            <a>
+                                                <div class="collapse_img remove-${id}">
+                                                     <img src="images/b_props.png" class="mx-1" alt="db" title="Structure">
+                                                </div>
+                                            </a>
+
+                                            <a class='btn get-id-1 minus_${i.id} remove-${id}' data-toggle='collapse' data-target='#${i.id}' data-id-1='${i.id}' title="Browse" aria-expanded="false">
                                                 ${i.name}
                                             </a>
                                         </div>
@@ -191,26 +182,34 @@ $(document).on('click','.get-id',function () {
                                       </div>`);
                 }
             });
-/*            setTimeout(function () {
-                $('#asd' + id)[0].children[0].remove();
-                $('#asd' + id).append(`<img src="images/b_minus.png" alt="plus" title="Expand/Collapse" class="plusMinus" accesskey="1">`);
-            }, 1000);*/
-
-            //$('.ajax' + id).css('display', 'none');
-            //$('.plus' + id).css('display', 'block');
-
+            setTimeout(function () {
+                $('#load' + id)[0].children[0].remove();
+                if ($('.minus_' + id)[0].attributes[5].value === 'false'){
+                    $('#load' + id).append(`<img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus">`);
+                }else {
+                    $('#load' + id).append(`<img src="images/b_minus.png" alt="minus" title="Expand/Collapse" class="plusMinus">`);
+                }
+            }, 300);
         }
     });
 });
 
 
-/*$(document).on('click','.get-id-1',function () {
+$(document).on('click','.get-id-1',function () {
     let id = $(this).attr('data-id-1');
     $('.remove-' + id).remove();
     $.ajax({
         url: "json/columns.json",
         type: "GET",
         dataType: "json",
+        beforeSend: function(){
+            $('#loading' + id)[0].children[0].remove();
+            if ($('.minus_' + id)[0].attributes[5].value === 'true'){
+                $('#loading' + id).append(`<img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus">`);
+            } else {
+                $('#loading' + id).append(`<img src="images/ajax_clock_small.gif" alt="ajax_clock_small">`);
+            }
+        },
         success: function (data) {
             data.columns.forEach((i, k) => {
                     if (id === i.col_ind){
@@ -225,10 +224,23 @@ $(document).on('click','.get-id',function () {
                                             </a> 
                                        </li>`);
                     }
-            })
+            });
+
+            setTimeout(function () {
+
+                $('#loading' + id)[0].children[0].remove();
+
+                if ($('.minus_' + id)[0].attributes[5].value === 'false'){
+
+                    $('#loading' + id).append(`<img src="images/b_plus.png" alt="plus" title="Expand/Collapse" class="plusMinus">`);
+                }else {
+                    $('#loading' + id).append(`<img src="images/b_minus.png" alt="minus" title="Expand/Collapse" class="plusMinus">`);
+                }
+            }, 300);
+
         }
     });
-});*/
+});
 
 
 
