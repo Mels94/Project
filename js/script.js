@@ -120,7 +120,7 @@ $.ajax({
                                                  <img src="images/s_db.png" alt="db" title="Database operations">
                                               </div>
                                         </a>
-                                        <a class='btn px-0 get-id minus_${i.id}' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' title="Structure" aria-expanded="false">
+                                        <a class='btn px-0 get-id minus_${i.id}' data-toggle='collapse' data-target='#${i.id}' data-id='${i.id}' onclick="Func(${index + 1})" title="Structure" aria-expanded="false">
                                               ${i.name}
                                         </a>
                                     </div>
@@ -154,7 +154,8 @@ $(document).on('click','.get-id',function () {
             }
         },
         success: function (data) {
-            data.table.forEach((i, k) => {
+            data.table.forEach((i, index) => {
+
                 if (id === i.db_id){
                     $('#' + id).append(`<div class="group">
                                         <div class='minus_plus'>
@@ -170,7 +171,7 @@ $(document).on('click','.get-id',function () {
                                                 </div>
                                             </a>
 
-                                            <a class='btn get-id-1 minus_${i.id} remove-${id}' data-toggle='collapse' data-target='#${i.id}' data-id-1='${i.id}' title="Browse" aria-expanded="false">
+                                            <a class='btn get-id-1 minus_${i.id} remove-${id}' data-toggle='collapse' data-target='#${i.id}' data-id-1='${i.id}' onclick="Func_user(${index + 1})" title="Browse" aria-expanded="false">
                                                 ${i.name}
                                             </a>
                                         </div>
@@ -248,7 +249,7 @@ $(document).on('click','.get-id-1',function () {
 
 
 //new_db
-/*$.ajax({
+$.ajax({
     url: "json/new_db.json",
     type: "GET",
     dataType: "json",
@@ -309,29 +310,29 @@ $(document).on('click','.get-id-1',function () {
             });
         });
     }
-});*/
+});
 
 
-//tables
-/*function Func(arg) {
+//tables_info
+function Func(arg) {
     $.ajax({
-        url: "json/tables.json",
+        url: "json/tables_info.json",
         type: "GET",
         dataType: "json",
         success: function (data) {
-            for (let h = 0; h < data.tables.length; h++) {
+            for (let h = 0; h < data.tables_info.length; h++) {
 
                 if (arg === h + 1) {
 
                     $("#main_pane_left").css({display: "none"});
                     $("#main_pane_right").css({display: "none"});
                     $("#new_database").css({display: "none"});
-                    $("#tables").css({display: "none"});
+                    $("#tables_info").css({display: "block"});
                     $(".remove").remove();
 
                     $('#tables_user').append(`<table class="table-sm remove"><tr id="tr_th_1"></tr></table>`);
 
-                    Object.keys(data.tables[h].table[0]).forEach(item => {
+                    Object.keys(data.tables_info[h].table[0]).forEach(item => {
                         if (item === "checkbox") {
                             item = "";
                         }
@@ -343,45 +344,45 @@ $(document).on('click','.get-id-1',function () {
                     $("#tables_user table tr th a").attr('href', '#');
                     $("#tables_user table tr th a:eq(2)").removeAttr('href');
 
-                    for (let i = 0; i < data.tables[h].table.length; i++) {
+                    for (let i = 0; i < data.tables_info[h].table.length; i++) {
                         $('#tables_user table').append(`<tr id="tr_td_${i}">
                                                             <td><input type="checkbox"></td>
-                                                            <td><a href="#">${data.tables[h].table[i].Table}</a></td>
+                                                            <td><a href="#">${data.tables_info[h].table[i].Table}</a></td>
                                                         </tr>`);
 
-                        for (let j = 0; j < data.tables[h].table[i].Action.length; j++) {
+                        for (let j = 0; j < data.tables_info[h].table[i].Action.length; j++) {
 
                             $('#tr_td_' + i).append(`<td>
                                                     <a href="#">
-                                                        <img src="${data.tables[h].table[i].Action[j].img}">
-                                                        ${data.tables[h].table[i].Action[j].name}
+                                                        <img src="${data.tables_info[h].table[i].Action[j].img}">
+                                                        ${data.tables_info[h].table[i].Action[j].name}
                                                     </a>
                                                   </td>`);
                         }
-                            $('#tr_td_' + i).append(`<td>${data.tables[h].table[i].Rows}</td>
-                                                  <td>${data.tables[h].table[i].Type}</td>
-                                                  <td>${data.tables[h].table[i].Collation}</td>
-                                                  <td><a href="#">${data.tables[h].table[i].Size}</a></td>
-                                                  <td>${data.tables[h].table[i].Overhead}</td>`);
+                            $('#tr_td_' + i).append(`<td>${data.tables_info[h].table[i].Rows}</td>
+                                                  <td>${data.tables_info[h].table[i].Type}</td>
+                                                  <td>${data.tables_info[h].table[i].Collation}</td>
+                                                  <td><a href="#">${data.tables_info[h].table[i].Size}</a></td>
+                                                  <td>${data.tables_info[h].table[i].Overhead}</td>`);
                     }
 
                     $('#tables_user table').append(`<tr id="tr_th_2"></tr>`);
 
-                    Object.keys(data.tables[h].table[0]).forEach(item => {
+                    Object.keys(data.tables_info[h].table[0]).forEach(item => {
                         var temp = [], temp1 = [];
-                        for (let k in data.tables[h].table) {
+                        for (let k in data.tables_info[h].table) {
                             if (item === "checkbox") {
                                 item = "";
                             }
                             if (item === "Table") {
-                                item = `${data.tables[h].table.length} tables`;
+                                item = `${data.tables_info[h].table.length} tables`;
                             }
                             if (item === "Action") {
                                 item = `Sum`;
                             }
                             //console.log(temp);
                             if (item === "Rows") {
-                                temp.push(+data.tables[h].table[k].Rows);
+                                temp.push(+data.tables_info[h].table[k].Rows);
                                 let sum = temp.reduce((a, b) => a + b);
                                 item = sum;
                             }
@@ -392,7 +393,7 @@ $(document).on('click','.get-id-1',function () {
                                 item = `utf8mb4_0900_ai_ci`;
                             }
                             if (item === "Size") {
-                                let size_arr = data.tables[h].table[k].Size.split(" ");
+                                let size_arr = data.tables_info[h].table[k].Size.split(" ");
                                 temp1.push(+size_arr[0]);
                                 let sum1 = temp1.reduce((a, b) => a + b);
                                 item = `${sum1}.0 KiB`;
@@ -415,14 +416,13 @@ $(document).on('click','.get-id-1',function () {
             }
         }
     });
-}*/
+}
 
 
 //table_data
-/*
 function Func_user(arg) {
     console.log(arg);
-    $.ajax({
+/*    $.ajax({
         url: "json/responsive.json",
         type: "GET",
         dataType: "json",
@@ -445,5 +445,5 @@ function Func_user(arg) {
                 }
             }
         }
-    });
-}*/
+    });*/
+}

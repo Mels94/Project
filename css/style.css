@@ -131,8 +131,8 @@ table:first-of-type tr:nth-child(odd){
 }
 
 
-/*-------------------Tables-----------------*/
-#tables{
+/*-------------------Tables_info-----------------*/
+#tables_info{
     display: none;
     width: 100%;
 }

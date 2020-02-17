@@ -1,7 +1,7 @@
 {
   "table_data": [
     {
-      "User": [
+      "demoin": [
         {
           "checkbox": [
             {
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "User_ID": [
+      "demoin1": [
         {
           "checkbox": [
             {
@@ -42,14 +42,14 @@
             }
           ],
           "id": "5",
-          "name": "Karen",
-          "email": "karencfg@mail.ru",
-          "password": "fghmvsgydj123432bn"
+          "name": "Samvel",
+          "email": "samvelfg@mail.ru",
+          "password": "fg577njsgydj123432bn"
         }
       ]
     },
     {
-      "Friend_ID": [
+      "demoin2": [
         {
           "checkbox": [
             {
@@ -66,9 +66,9 @@
             }
           ],
           "id": "5",
-          "name": "Karen",
-          "email": "karencfg@mail.ru",
-          "password": "fghmvsgydj123432bn"
+          "name": "Armen",
+          "email": "armenfg@mail.ru",
+          "password": "fgh453ydj123432bn"
         }
       ]
     }
